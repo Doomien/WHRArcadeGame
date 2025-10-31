@@ -1,0 +1,20 @@
+# Stakeholder Questions & Answers
+
+This log captures discovery questions related to the WHR Arcade Game → Phaser migration. Update entries as new information becomes available.
+
+| # | Question | Answer | Notes |
+| - | -------- | ------ | ----- |
+| 1 | What are the primary target platforms and performance budgets (desktop, mobile, specific browsers) that the Phaser build must satisfy? | Desktop and laptop web browsers are the priority target. | Optimize for Chromium and Firefox; mobile is out-of-scope unless requested later. |
+| 2 | Are there any gameplay changes or quality-of-life improvements expected during the migration, or is strict feature parity the mandate? | No new gameplay or QoL features are requested, though improvements that naturally arise from a cleaner Phaser implementation are welcome. | Treat opportunities as stretch goals once parity is met. |
+| 3 | Which Unity assets (sprites, animations, audio) lack clear licensing or source files, and will we have access to originals for export/conversion? | All current assets have clear licensing, and original files are available. | Proceed with planned export pipeline without blockers. |
+| 4 | How critical is maintaining existing save data or high score persistence between the Unity and Phaser versions, and should migration tooling be built? | Migration of existing save data is not expected. | Implement new persistence for the Phaser build only. |
+| 5 | Do we need to support gamepad input in addition to keyboard/mouse on the web, and what accessibility requirements should be honored? | Keyboard input is required; gamepad support is optional depending on scope. No additional accessibility requirements are planned at this time. | Architect input mapping to allow future gamepad support. |
+| 6 | Are there analytics, telemetry, or live-ops hooks that must be integrated into the Phaser port for post-launch monitoring? | No analytics integrations are required. | Keep architecture flexible for future instrumentation. |
+| 7 | What is the expected cadence for stakeholder reviews or playable milestone demos during the migration phases? | Stakeholders want regular, step-by-step feature rollouts (scenes, character display, animation, enemies, etc.) with verification at each step. | Roadmap must reflect incremental demo checkpoints. |
+| 8 | Are there known problem areas in the Unity build (bugs, performance hotspots) that should be addressed or avoided during parity validation? | None are currently known. | Monitor for parity gaps during testing. |
+| 9 | How should we prioritize localization support—are additional languages planned that affect UI layout and asset preparation? | No additional languages are planned. | Keep UI text externalized for future localization if needed. |
+| 10 | What deployment and hosting constraints exist (CDN, authentication, offline availability) that influence build tooling and asset packaging? | Primary distribution will be via Electron (or similar), while retaining browser-based distribution. No special CDN considerations. | Ensure build pipeline emits both Electron-ready and static web bundles. |
+| 11 | Who are the designated subject-matter experts for gameplay mechanics, art direction, and audio who can answer implementation questions quickly? | Stakeholders prefer that ongoing questions live in this separate document rather than the main strategy. | Use this log for future inquiries and answers. |
+| 12 | Is there an appetite for refactoring gameplay scripts into data-driven systems during migration, or should we postpone large design shifts until after launch? | Gameplay script refactoring is acceptable if it produces a cleaner Phaser implementation. | Prioritize maintainability improvements that do not delay parity milestones. |
+| 13 | What additional resources or decisions are required from stakeholders before development kicks off? | Need Unity project access, asset export assignments, reference captures, tooling preferences, and review availability. | Details tracked in §1.2 "Outstanding Needs Before Kickoff" of the strategy document. |
+
