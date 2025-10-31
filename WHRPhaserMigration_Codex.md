@@ -30,6 +30,12 @@ To de-risk the early sprints, please confirm or provide the following inputs/res
 - **Environment preferences**: Clarify preferred tooling alignment—package manager (npm vs. pnpm), CI provider, and any corporate coding standards we should adopt in the new repository.
 - **Stakeholder schedule**: Share availability windows for each checkpoint review so we can book recurring demos aligned with the incremental rollout request.
 
+## 1.3 Phaser Source Drop Overview
+- The repository now vendors the complete Phaser 3.90.0 source tree under [`Phaser/`](Phaser), matching the upstream MIT-licensed distribution bundled with the official npm package.
+- Treat this directory as a third-party dependency: avoid modifying files directly unless a local patch is absolutely required. Document any deviations from upstream in the migration log so that updates can be rebased cleanly.
+- When local debugging of Phaser internals is necessary, install dependencies within the folder (`npm install`) and run the standard build scripts (e.g., `npm run dist`). Generated artefacts such as `node_modules/` or temporary build outputs should remain uncommitted per the updated `.gitignore` safeguards.
+- Future framework upgrades should follow the vendor-drop workflow: pull the desired Phaser tag, replace the contents of `Phaser/`, and validate against the parity checkpoints before merging into the migration branch.
+
 ## 2. Current Unity Architecture Summary
 ### Scene & Flow Management
 - `SceneController` orchestrates scene transitions, fade overlays, tally screens, and score freezing while guarding against premature transitions via `preventTransition`. It selects Unity scenes by string parameter and optionally tallies score before loading the next level.【F:Assets/scripts/Scenes/SceneController.cs†L1-L215】【F:Assets/scripts/Scenes/SceneController.cs†L216-L239】
