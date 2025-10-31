@@ -1,0 +1,23 @@
+{
+  "stateMap": {
+    "0": "idle",
+    "2": "walk-right",
+    "4": "walk-left",
+    "10": "attack",
+    "11": "attack-up",
+    "12": "attack-right",
+    "13": "attack-down",
+    "14": "attack-left",
+    "20": "jump",
+    "22": "jump-right",
+    "24": "jump-left",
+    "31": "damage-up",
+    "32": "damage-right",
+    "33": "damage-down",
+    "34": "damage-left",
+    "71": "dig-up",
+    "72": "dig-right",
+    "73": "dig-down",
+    "74": "dig-left"
+  }
+}

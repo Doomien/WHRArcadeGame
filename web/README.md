@@ -1,17 +1,40 @@
 # WHR Arcade Game Phaser Prototype
 
-This directory hosts the first playable Phaser proof-of-concept for the WHR Arcade Game migration. Open `index.html` in a local web server (or directly in a browser that allows local file access to images) to view the scene. The scene displays the Unity menu background rendered through Phaser 3, verifying that the framework boots correctly and assets load as expected.
+## Phase 0 Status: Complete ✅
 
-> **Note:** The Unity background image (`web/assets/main-scene-background.png`) is ignored by Git so it can be managed locally.
-> Copy the latest export from the Unity project into that path before launching the prototype.
+### Implemented Features
+- ✅ Canvas expanded to 1280x720 resolution
+- ✅ Ray character sprite sheets imported (18 files)
+- ✅ Animation system implemented with 8+ animations
+- ✅ DevTools visualization page built
+- ✅ Asset pipeline documented
 
-## Running locally
+### Running the Prototype
 
-From the repository root, start any static file server that serves the `web/` directory. For example, using Python:
-
+**Main Game:**
 ```bash
 cd web
-python -m http.server 8080
+python3 -m http.server 8000
+# Open http://localhost:8000
 ```
 
-Then open <http://localhost:8080> in your browser.
+**DevTools Asset Viewer:**
+```bash
+# Same server, different page
+# Open http://localhost:8000/devtools.html
+```
+
+### Testing Animations
+
+In main game (`index.html`):
+- Press 1-6 to test different Ray animations
+
+In DevTools (`devtools.html`):
+- Use dropdown to select animations
+- Click sprite sheet tiles to switch animations
+- Adjust scale with slider
+- Use play/pause/reset controls
+
+### Asset Documentation
+
+See [ASSET_GUIDE.md](assets/ASSET_GUIDE.md) for complete asset documentation.

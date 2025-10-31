@@ -1,0 +1,19 @@
+{
+  "name": "Snake",
+  "spriteSheets": [
+    {
+      "key": "snake-walk",
+      "file": "Snake Master Sprite Sheet.png",
+      "frameWidth": 16,
+      "frameHeight": 16
+    }
+  ],
+  "animations": [
+    {
+      "key": "snake-walk",
+      "spriteSheet": "snake-walk",
+      "frameRate": 12,
+      "repeat": -1
+    }
+  ]
+}

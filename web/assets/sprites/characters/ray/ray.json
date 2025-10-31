@@ -1,0 +1,103 @@
+{
+  "name": "Ray",
+  "spriteSheets": [
+    {
+      "key": "ray-idle",
+      "file": "Ray_Idle_NoShovel 1.2-Sheet.png",
+      "frameWidth": 32,
+      "frameHeight": 32
+    },
+    {
+      "key": "ray-walk-right",
+      "file": "Ray_Walk_Right 1.2-Sheet.png",
+      "frameWidth": 32,
+      "frameHeight": 32
+    },
+    {
+      "key": "ray-walk-left",
+      "file": "Ray_Walk_Left 1.2-Sheet.png",
+      "frameWidth": 32,
+      "frameHeight": 32
+    },
+    {
+      "key": "ray-jump-right",
+      "file": "Ray_Jump_Right-sheet.png",
+      "frameWidth": 32,
+      "frameHeight": 32
+    },
+    {
+      "key": "ray-jump-left",
+      "file": "Ray_Jump_Left-sheet.png",
+      "frameWidth": 32,
+      "frameHeight": 32
+    },
+    {
+      "key": "ray-attack-right",
+      "file": "Ray_Attack_Right 1.2-Sheet.png",
+      "frameWidth": 32,
+      "frameHeight": 32
+    },
+    {
+      "key": "ray-attack-left",
+      "file": "Ray_Attack_Left 1.2-Sheet.png",
+      "frameWidth": 32,
+      "frameHeight": 32
+    },
+    {
+      "key": "ray-dig-down",
+      "file": "Ray_Dig_Down 1.2-Sheet.png",
+      "frameWidth": 32,
+      "frameHeight": 32
+    }
+  ],
+  "animations": [
+    {
+      "key": "ray-idle",
+      "spriteSheet": "ray-idle",
+      "frameRate": 8,
+      "repeat": -1
+    },
+    {
+      "key": "ray-walk-right",
+      "spriteSheet": "ray-walk-right",
+      "frameRate": 12,
+      "repeat": -1
+    },
+    {
+      "key": "ray-walk-left",
+      "spriteSheet": "ray-walk-left",
+      "frameRate": 12,
+      "repeat": -1
+    },
+    {
+      "key": "ray-jump-right",
+      "spriteSheet": "ray-jump-right",
+      "frameRate": 10,
+      "repeat": 0
+    },
+    {
+      "key": "ray-jump-left",
+      "spriteSheet": "ray-jump-left",
+      "frameRate": 10,
+      "repeat": 0
+    },
+    {
+      "key": "ray-attack-right",
+      "spriteSheet": "ray-attack-right",
+      "frameRate": 12,
+      "repeat": 0
+    },
+    {
+      "key": "ray-attack-left",
+      "spriteSheet": "ray-attack-left",
+      "frameRate": 12,
+      "repeat": 0
+    },
+    {
+      "key": "ray-dig-down",
+      "spriteSheet": "ray-dig-down",
+      "frameRate": 10,
+      "repeat": 0
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Scorpion",
+  "spriteSheets": [
+    {
+      "key": "scorpion-idle",
+      "file": "Scorpion_Idle 1.0 - Sheet.png",
+      "frameWidth": 160,
+      "frameHeight": 160
+    }
+  ],
+  "animations": [
+    {
+      "key": "scorpion-idle",
+      "spriteSheet": "scorpion-idle",
+      "frameRate": 8,
+      "repeat": -1
+    }
+  ]
+}

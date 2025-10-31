@@ -1,0 +1,19 @@
+{
+  "name": "Rat",
+  "spriteSheets": [
+    {
+      "key": "rat-walk",
+      "file": "Rat 2.0-Sheet.png",
+      "frameWidth": 16,
+      "frameHeight": 16
+    }
+  ],
+  "animations": [
+    {
+      "key": "rat-walk",
+      "spriteSheet": "rat-walk",
+      "frameRate": 12,
+      "repeat": -1
+    }
+  ]
+}

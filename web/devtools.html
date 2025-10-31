@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>WHR Arcade Game - DevTools Asset Viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/devtools.css" />
+    <script src="../Phaser/dist/phaser.js"></script>
+    <script src="js/animation-loader.js"></script>
+    <script src="js/devtools.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <h1>WHR Arcade Game - DevTools Asset Viewer</h1>
+      <p>Visual testing and asset verification tool</p>
+    </div>
+
+    <div class="controls">
+      <div class="control-group">
+        <label>Character:</label>
+        <select id="character-select">
+          <option value="ray">Ray (Player)</option>
+          <option value="scorpion">Scorpion (Boss)</option>
+          <option value="rat">Rat (Enemy)</option>
+          <option value="snake">Snake (Enemy)</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label>Animation:</label>
+        <select id="animation-select">
+          <option value="ray-idle">Idle</option>
+          <option value="ray-walk-right">Walk Right</option>
+          <option value="ray-walk-left">Walk Left</option>
+          <option value="ray-jump-right">Jump Right</option>
+          <option value="ray-jump-left">Jump Left</option>
+          <option value="ray-attack-right">Attack Right</option>
+          <option value="ray-attack-left">Attack Left</option>
+          <option value="ray-dig-down">Dig Down</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label>Scale:</label>
+        <input type="range" id="scale-slider" min="1" max="8" value="4" step="1" />
+        <span id="scale-value">4x</span>
+      </div>
+
+      <div class="control-group">
+        <button id="play-btn">Play</button>
+        <button id="pause-btn">Pause</button>
+        <button id="reset-btn">Reset</button>
+      </div>
+    </div>
+
+    <div class="canvas-container">
+      <div id="game-root"></div>
+    </div>
+
+    <div class="asset-grid">
+      <h2>Available Sprite Sheets</h2>
+      <div id="sprite-sheet-list"></div>
+    </div>
+
+    <div class="info-panel">
+      <h2>Animation Info</h2>
+      <div id="animation-info">
+        <p><strong>Current Animation:</strong> <span id="current-anim">None</span></p>
+        <p><strong>Frame Count:</strong> <span id="frame-count">0</span></p>
+        <p><strong>Frame Rate:</strong> <span id="frame-rate">0</span></p>
+        <p><strong>Current Frame:</strong> <span id="current-frame">0</span></p>
+      </div>
+    </div>
+  </body>
+</html>
