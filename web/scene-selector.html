@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>WHR Scene Selector</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        margin: 0;
+        font-family: sans-serif;
+        background-color: #0b1016;
+        color: #f0f3f6;
+        min-height: 100vh;
+      }
+
+      header {
+        padding: 16px 24px;
+        background-color: #151d26;
+        border-bottom: 1px solid #22303c;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      main {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        grid-template-rows: 1fr;
+        min-height: calc(100vh - 64px);
+      }
+
+      nav {
+        border-right: 1px solid #22303c;
+        padding: 16px;
+        overflow-y: auto;
+      }
+
+      nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 8px;
+      }
+
+      nav button {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #2c3a47;
+        border-radius: 6px;
+        background: #1f2a35;
+        color: inherit;
+        cursor: pointer;
+        text-align: left;
+        transition: background 0.2s ease, border-color 0.2s ease;
+      }
+
+      nav button:hover {
+        background: #2c3a47;
+        border-color: #3a4c5f;
+      }
+
+      nav button.active {
+        background: #3a4c5f;
+        border-color: #58a6ff;
+      }
+
+      #scene-status {
+        font-size: 0.9rem;
+        opacity: 0.85;
+      }
+
+      #preview {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        overflow: hidden;
+      }
+
+      #scene-info {
+        padding: 16px 24px;
+        border-bottom: 1px solid #22303c;
+        background: #111821;
+        display: grid;
+        gap: 12px;
+      }
+
+      #scene-title {
+        margin: 0;
+        font-size: 1.4rem;
+      }
+
+      .info-grid {
+        display: grid;
+        gap: 6px;
+      }
+
+      .info-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        font-size: 0.95rem;
+      }
+
+      .info-label {
+        opacity: 0.7;
+      }
+
+      .info-value {
+        font-family: "Fira Code", monospace;
+      }
+
+      #scene-actions {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      #edit-scene-btn {
+        padding: 8px 14px;
+        background: #2563eb;
+        border: 1px solid #1d4ed8;
+        border-radius: 6px;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      #edit-scene-btn:disabled {
+        background: #2c3a47;
+        border-color: #2c3a47;
+        cursor: not-allowed;
+        opacity: 0.6;
+      }
+
+      #scene-note {
+        margin: 0;
+        font-size: 0.85rem;
+        opacity: 0.65;
+      }
+
+      #game-frame {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background: #000;
+      }
+
+      .modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(10, 15, 22, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        padding: 24px;
+      }
+
+      .modal.hidden {
+        display: none;
+      }
+
+      .modal-content {
+        background: #111821;
+        border: 1px solid #22303c;
+        border-radius: 12px;
+        width: min(920px, 100%);
+        max-height: 90vh;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        overflow: hidden;
+      }
+
+      .modal-header,
+      .modal-footer {
+        padding: 16px 20px;
+        border-bottom: 1px solid #22303c;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .modal-footer {
+        border-bottom: none;
+        border-top: 1px solid #22303c;
+      }
+
+      #modal-close {
+        background: transparent;
+        border: none;
+        color: #f0f3f6;
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+
+      .modal-body {
+        padding: 0 20px 16px;
+        display: grid;
+        grid-template-rows: 1fr;
+      }
+
+      #scene-json-editor {
+        width: 100%;
+        height: 100%;
+        font-family: "Fira Code", monospace;
+        font-size: 0.9rem;
+        background: #0b1016;
+        color: #f0f3f6;
+        border: 1px solid #22303c;
+        border-radius: 8px;
+        padding: 16px;
+        resize: none;
+      }
+
+      .modal-buttons {
+        display: flex;
+        gap: 12px;
+      }
+
+      .modal-buttons button {
+        padding: 8px 16px;
+        border-radius: 6px;
+        border: 1px solid transparent;
+        cursor: pointer;
+      }
+
+      #modal-cancel {
+        background: #1f2a35;
+        border-color: #2c3a47;
+        color: #f0f3f6;
+      }
+
+      #modal-save {
+        background: #16a34a;
+        border-color: #15803d;
+        color: #fff;
+      }
+
+      #modal-error {
+        font-size: 0.85rem;
+        color: #f87171;
+      }
+
+      @media (max-width: 960px) {
+        main {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto 1fr;
+        }
+
+        nav {
+          border-right: none;
+          border-bottom: 1px solid #22303c;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Scene Selector</h1>
+      <span id="scene-status">Loading scene data…</span>
+    </header>
+    <main>
+      <nav>
+        <h2>Scenes</h2>
+        <ul id="scene-list"></ul>
+      </nav>
+      <section id="preview">
+        <div id="scene-info">
+          <div>
+            <h2 id="scene-title">Select a scene</h2>
+            <div class="info-grid">
+              <div class="info-row"><span class="info-label">Key</span><span class="info-value" id="scene-key">—</span></div>
+              <div class="info-row"><span class="info-label">Background</span><span class="info-value" id="scene-background">—</span></div>
+              <div class="info-row"><span class="info-label">Spawn</span><span class="info-value" id="scene-spawn">—</span></div>
+              <div class="info-row"><span class="info-label">Platforms</span><span class="info-value" id="scene-platforms">—</span></div>
+            </div>
+          </div>
+          <div id="scene-actions">
+            <button id="edit-scene-btn" disabled>Edit Scene Definition</button>
+            <p id="scene-note">Edits are temporary; copy the JSON into scenes.json when finalized.</p>
+          </div>
+        </div>
+        <iframe
+          id="game-frame"
+          src="index.html?scene=sandbox"
+          title="WHR Phaser Preview"
+        ></iframe>
+      </section>
+    </main>
+    <div
+      id="scene-modal"
+      class="modal hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="scene-modal-title"
+    >
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="scene-modal-title">Edit Scene Definition</h2>
+          <button id="modal-close" aria-label="Close editor">X</button>
+        </div>
+        <div class="modal-body">
+          <textarea id="scene-json-editor" spellcheck="false"></textarea>
+        </div>
+        <div class="modal-footer">
+          <span id="modal-error"></span>
+          <div class="modal-buttons">
+            <button id="modal-cancel" type="button">Cancel</button>
+            <button id="modal-save" type="button">Save Changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/devtools/scene-selector.js"></script>
+  </body>
+</html>

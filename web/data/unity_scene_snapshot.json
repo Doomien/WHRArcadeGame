@@ -1,0 +1,1219 @@
+[
+  {
+    "scene_file": "Scenes/L1_Desert_Pt1.unity",
+    "scene_name": "L1_Desert_Pt1",
+    "backgrounds": [
+      {
+        "game_object": "Level 1 Desert Scene - Full Background - Copy (1)",
+        "sprite_guid": "5be0eb0725801c64393790bf7cc772e3",
+        "sprite_path": "sprite-sheets/Backgrounds/Level 1 Desert Scene - Full Background - Copy.png",
+        "sorting_order": -20
+      },
+      {
+        "game_object": "Level 1 Desert Scene - Full Background - Copy",
+        "sprite_guid": "5be0eb0725801c64393790bf7cc772e3",
+        "sprite_path": "sprite-sheets/Backgrounds/Level 1 Desert Scene - Full Background - Copy.png",
+        "sorting_order": -20
+      }
+    ],
+    "player_spawn": {
+      "x": 10.417,
+      "y": 0.289,
+      "z": 0.5
+    },
+    "platforms": [
+      {
+        "prefab_guid": "8cdf2f954a86e4b42adad423e09b4ada",
+        "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+        "x": 19.872,
+        "y": 1.695,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "c4e4714dc058faf44bf77fdd92065cf6",
+        "prefab_asset": "prefabs/Platforms/mesa_15_A.prefab",
+        "x": 28.089,
+        "y": 0.694,
+        "z": -1.0,
+        "scale_x": -1.0,
+        "scale_y": 1.0,
+        "width": 0.80793667,
+        "height": 0.96117854
+      },
+      {
+        "prefab_guid": "d92f3aeedc85b684aa68deb26ded6827",
+        "prefab_asset": "prefabs/Platforms/Floating_1x8.prefab",
+        "x": 37.000248,
+        "y": 0.17701766,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 1.28,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "efe327e11939e8540a0b71caa4c7cbf5",
+        "prefab_asset": "prefabs/Platforms/mesa_07.prefab",
+        "x": 16.24482,
+        "y": 0.298,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.8021033,
+        "height": 0.32
+      },
+      {
+        "prefab_guid": "5c2dde517b20dae4b8c3408322b08f50",
+        "prefab_asset": "prefabs/Platforms/Mesa_09_A.prefab",
+        "x": 15.07,
+        "y": 0.219,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 1.28,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "16e757d55af38d248ac86c1c6dedad12",
+        "prefab_asset": "prefabs/Platforms/Mesa_11_A.prefab",
+        "x": 22.51209,
+        "y": 0.29924783,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48085642,
+        "height": 0.32144642
+      },
+      {
+        "prefab_guid": "efe327e11939e8540a0b71caa4c7cbf5",
+        "prefab_asset": "prefabs/Platforms/mesa_07.prefab",
+        "x": 41.431,
+        "y": -1.4439,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.2492,
+        "width": 0.8021033,
+        "height": 0.39974400000000004
+      },
+      {
+        "prefab_guid": "8cdf2f954a86e4b42adad423e09b4ada",
+        "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+        "x": 33.98352,
+        "y": -0.42785642,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "b2e5bd6fbe49a194a86e6d3b55dfc90b",
+        "prefab_asset": "prefabs/Platforms/Floating_1x5.prefab",
+        "x": 20.679,
+        "y": 1.103,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.8,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 50.3737,
+        "y": -4.5789,
+        "z": 0.0,
+        "scale_x": 69.79189,
+        "scale_y": 58.995697,
+        "width": 11.1667024,
+        "height": 9.43931152
+      },
+      {
+        "prefab_guid": "1c88e6b69583e584290a2ab044447f25",
+        "prefab_asset": "prefabs/Platforms/Mesa_09.prefab",
+        "x": 31.929,
+        "y": -2.026,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 1.28,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "8cdf2f954a86e4b42adad423e09b4ada",
+        "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+        "x": 44.572,
+        "y": -0.2,
+        "z": -1.0,
+        "scale_x": 0.8759,
+        "scale_y": 1.0,
+        "width": 0.420432,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "6e518b6a342989942848399e25bd8fd1",
+        "prefab_asset": "prefabs/Platforms/mesa_15_B.prefab",
+        "x": 29.536,
+        "y": -1.521,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48380053,
+        "height": 0.96451986
+      },
+      {
+        "prefab_guid": "f57b14cef6cacfb4098416601a7e3d2e",
+        "prefab_asset": "prefabs/Platforms/mesa_06_light_a.prefab",
+        "x": 17.345217,
+        "y": 0.5351099,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.4868009,
+        "height": 0.8030437
+      },
+      {
+        "prefab_guid": "61437ec967f5c704c8516e8bdd8f81a1",
+        "prefab_asset": "prefabs/Platforms/Mesa_10_A.prefab",
+        "x": 26.655,
+        "y": -0.983,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48203743,
+        "height": 0.64
+      },
+      {
+        "prefab_guid": "b2e5bd6fbe49a194a86e6d3b55dfc90b",
+        "prefab_asset": "prefabs/Platforms/Floating_1x5.prefab",
+        "x": 34.6234,
+        "y": -0.08299999,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.8,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "8cdf2f954a86e4b42adad423e09b4ada",
+        "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+        "x": 43.7004,
+        "y": -0.512,
+        "z": -1.0,
+        "scale_x": 1.4399437,
+        "scale_y": 1.0,
+        "width": 0.6911729759999999,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "8cdf2f954a86e4b42adad423e09b4ada",
+        "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+        "x": 27.243923,
+        "y": 1.3324367,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "d92f3aeedc85b684aa68deb26ded6827",
+        "prefab_asset": "prefabs/Platforms/Floating_1x8.prefab",
+        "x": 18.645754,
+        "y": 1.3495089,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 1.28,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 42.0763,
+        "y": -1.8592,
+        "z": 0.0,
+        "scale_x": 15.931166,
+        "scale_y": 2.8991957,
+        "width": 2.54898656,
+        "height": 0.463871312
+      },
+      {
+        "prefab_guid": "8cdf2f954a86e4b42adad423e09b4ada",
+        "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+        "x": 32.51552,
+        "y": 0.2909617,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "efe327e11939e8540a0b71caa4c7cbf5",
+        "prefab_asset": "prefabs/Platforms/mesa_07.prefab",
+        "x": 16.247,
+        "y": 0.301,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.8021033,
+        "height": 0.32
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 27.52488,
+        "y": -1.6636109,
+        "z": 0.0,
+        "scale_x": 16.101248,
+        "scale_y": 5.205387,
+        "width": 2.5761996799999998,
+        "height": 0.83286192
+      },
+      {
+        "prefab_guid": "8cdf2f954a86e4b42adad423e09b4ada",
+        "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+        "x": 44.551,
+        "y": -0.863,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "8cdf2f954a86e4b42adad423e09b4ada",
+        "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+        "x": 35.92548,
+        "y": -0.28,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "5c2dde517b20dae4b8c3408322b08f50",
+        "prefab_asset": "prefabs/Platforms/Mesa_09_A.prefab",
+        "x": 35.801,
+        "y": -2.007,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 1.28,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "efe327e11939e8540a0b71caa4c7cbf5",
+        "prefab_asset": "prefabs/Platforms/mesa_07.prefab",
+        "x": 25.603273,
+        "y": 0.3095467,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.8021033,
+        "height": 0.32
+      },
+      {
+        "prefab_guid": "8cdf2f954a86e4b42adad423e09b4ada",
+        "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+        "x": 39.244556,
+        "y": 0.451,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "8cdf2f954a86e4b42adad423e09b4ada",
+        "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+        "x": 38.239,
+        "y": 0.622,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 27.7955,
+        "y": -0.0136,
+        "z": 0.0,
+        "scale_x": 12.825608,
+        "scale_y": 1.9616768,
+        "width": 2.0520972800000004,
+        "height": 0.313868288
+      },
+      {
+        "prefab_guid": "cf0279f4bd2c4f742ad570f9dce1211b",
+        "prefab_asset": "prefabs/Platforms/Mesa_004.prefab",
+        "x": 13.765,
+        "y": 0.30395266,
+        "z": 0.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48270226,
+        "height": 0.32
+      },
+      {
+        "prefab_guid": "cf0279f4bd2c4f742ad570f9dce1211b",
+        "prefab_asset": "prefabs/Platforms/Mesa_004.prefab",
+        "x": 21.581156,
+        "y": 0.30193588,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48270226,
+        "height": 0.32
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 41.8323,
+        "y": -0.2291,
+        "z": 0.0,
+        "scale_x": 18.982346,
+        "scale_y": 4.587154,
+        "width": 3.03717536,
+        "height": 0.73394464
+      },
+      {
+        "prefab_guid": "6fbe205163646f842af6dbddad3ec327",
+        "prefab_asset": "prefabs/Platforms/mesa_06.prefab",
+        "x": 44.05067,
+        "y": -1.6639,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0823,
+        "width": 0.48242563,
+        "height": 0.52245088644
+      },
+      {
+        "prefab_guid": "8cdf2f954a86e4b42adad423e09b4ada",
+        "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+        "x": 24.254803,
+        "y": 1.336,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "8cdf2f954a86e4b42adad423e09b4ada",
+        "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+        "x": 43.598,
+        "y": 0.036961716,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "8cdf2f954a86e4b42adad423e09b4ada",
+        "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+        "x": 33.239483,
+        "y": -0.08096172,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "8cdf2f954a86e4b42adad423e09b4ada",
+        "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+        "x": 26.238,
+        "y": 1.499,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "6fbe205163646f842af6dbddad3ec327",
+        "prefab_asset": "prefabs/Platforms/mesa_06.prefab",
+        "x": 23.432802,
+        "y": 0.5413413,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48242563,
+        "height": 0.4827228
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 35.5025,
+        "y": -5.663,
+        "z": 0.0,
+        "scale_x": 116.48719,
+        "scale_y": 45.162727,
+        "width": 18.6379504,
+        "height": 7.2260363199999995
+      },
+      {
+        "prefab_guid": "fdaacd172a153004dab32d266919b2c6",
+        "prefab_asset": "prefabs/Platforms/Mesa_11.prefab",
+        "x": 42.934162,
+        "y": 0.298,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48270214,
+        "height": 0.32
+      },
+      {
+        "prefab_guid": "d384ad1e57f0e77498171224aa9fc03d",
+        "prefab_asset": "prefabs/Platforms/Mesa_04_D.prefab",
+        "x": 19.316711,
+        "y": 0.3836129,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48258758,
+        "height": 0.48
+      },
+      {
+        "prefab_guid": "2f5ce8dd4412da243aa1638372a4c90c",
+        "prefab_asset": "prefabs/Platforms/Mesa_05_B.prefab",
+        "x": 21.819,
+        "y": 0.462,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48138845,
+        "height": 0.636268
+      },
+      {
+        "prefab_guid": "8cdf2f954a86e4b42adad423e09b4ada",
+        "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+        "x": 39.763557,
+        "y": 0.92196167,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "c4e4714dc058faf44bf77fdd92065cf6",
+        "prefab_asset": "prefabs/Platforms/mesa_15_A.prefab",
+        "x": 40.08,
+        "y": -1.797,
+        "z": -1.0,
+        "scale_x": -1.0,
+        "scale_y": 1.0,
+        "width": 0.80793667,
+        "height": 0.96117854
+      },
+      {
+        "prefab_guid": "275121d38ee0b3b4aa00b1ad108b804b",
+        "prefab_asset": "prefabs/Platforms/Mesa_01.prefab",
+        "x": 50.0609,
+        "y": 0.6275,
+        "z": -1.0,
+        "scale_x": 0.262,
+        "scale_y": 6.1814,
+        "width": 0.12576,
+        "height": 0.989024
+      },
+      {
+        "prefab_guid": "8cdf2f954a86e4b42adad423e09b4ada",
+        "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+        "x": 25.246,
+        "y": 1.498,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "d9560e8f7f5153849a9da575af4b8f7e",
+        "prefab_asset": "prefabs/Platforms/mesa_08_A.prefab",
+        "x": 42.71329,
+        "y": -1.4411,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.2663531,
+        "width": 1.28,
+        "height": 0.40523299199999996
+      },
+      {
+        "prefab_guid": "8cdf2f954a86e4b42adad423e09b4ada",
+        "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+        "x": 29.48865,
+        "y": 0.73920274,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "d92f3aeedc85b684aa68deb26ded6827",
+        "prefab_asset": "prefabs/Platforms/Floating_1x8.prefab",
+        "x": 31.43,
+        "y": 0.468,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 1.28,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "275121d38ee0b3b4aa00b1ad108b804b",
+        "prefab_asset": "prefabs/Platforms/Mesa_01.prefab",
+        "x": 12.84,
+        "y": 0.224,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "6e518b6a342989942848399e25bd8fd1",
+        "prefab_asset": "prefabs/Platforms/mesa_15_B.prefab",
+        "x": 41.058,
+        "y": 0.696,
+        "z": -1.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48380053,
+        "height": 0.96451986
+      }
+    ]
+  },
+  {
+    "scene_file": "Scenes/L2_Diner_Pt2.unity",
+    "scene_name": "L2_Diner_Pt2",
+    "backgrounds": [
+      {
+        "game_object": "Background",
+        "sprite_guid": "1e3150b37ac5b6449b1d1993e2f66af6",
+        "sprite_path": "sprite-sheets/Backgrounds/UFO Diner/diner_interior_v1.png",
+        "sorting_order": 0
+      }
+    ],
+    "player_spawn": {
+      "x": 0.919,
+      "y": 0.549,
+      "z": 0.5
+    },
+    "platforms": []
+  },
+  {
+    "scene_file": "Scenes/L3_DesertDig_Pt3 1.unity",
+    "scene_name": "L3_DesertDig_Pt3 1",
+    "backgrounds": [
+      {
+        "game_object": "Level_3_Desert_Cave_Background_01",
+        "sprite_guid": "c8daa9c4e1770de41894b1aadb799b28",
+        "sprite_path": "sprite-sheets/Backgrounds/Level_3_Desert_Cave_Background_01.png",
+        "sorting_order": -20
+      },
+      {
+        "game_object": "Desert Dig Scene - Full Background",
+        "sprite_guid": "ef5e8324ca29c1040865c82028715620",
+        "sprite_path": "sprite-sheets/Backgrounds/Cave Scene/Desert Dig Scene - Full Background.png",
+        "sorting_order": -5
+      },
+      {
+        "game_object": "Level_3_Desert_Cave_Background_01 (1)",
+        "sprite_guid": "c8daa9c4e1770de41894b1aadb799b28",
+        "sprite_path": "sprite-sheets/Backgrounds/Level_3_Desert_Cave_Background_01.png",
+        "sorting_order": -20
+      },
+      {
+        "game_object": "Level_3_Desert_Cave_Background_01 (2)",
+        "sprite_guid": "c8daa9c4e1770de41894b1aadb799b28",
+        "sprite_path": "sprite-sheets/Backgrounds/Level_3_Desert_Cave_Background_01.png",
+        "sorting_order": -20
+      }
+    ],
+    "player_spawn": {
+      "x": -2.409,
+      "y": 0.054,
+      "z": 0.5
+    },
+    "platforms": [
+      {
+        "prefab_guid": "8cdf2f954a86e4b42adad423e09b4ada",
+        "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+        "x": 1.9994812,
+        "y": 1.0789235,
+        "z": 0.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 7.2058,
+        "y": -1.53121,
+        "z": 0.1,
+        "scale_x": 66.50868,
+        "scale_y": 17.885664,
+        "width": 10.6413888,
+        "height": 2.8617062399999997
+      },
+      {
+        "prefab_guid": "f57b14cef6cacfb4098416601a7e3d2e",
+        "prefab_asset": "prefabs/Platforms/mesa_06_light_a.prefab",
+        "x": 1.1529999,
+        "y": 0.29799998,
+        "z": 0.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.4868009,
+        "height": 0.8030437
+      },
+      {
+        "prefab_guid": "f57b14cef6cacfb4098416601a7e3d2e",
+        "prefab_asset": "prefabs/Platforms/mesa_06_light_a.prefab",
+        "x": -4.05,
+        "y": 0.245,
+        "z": 0.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.4868009,
+        "height": 0.8030437
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": -1.92,
+        "y": -1.5431,
+        "z": 0.1,
+        "scale_x": 49.15575,
+        "scale_y": 18.030499,
+        "width": 7.86492,
+        "height": 2.88487984
+      },
+      {
+        "prefab_guid": "8cdf2f954a86e4b42adad423e09b4ada",
+        "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+        "x": 3.7624426,
+        "y": 1.0860384,
+        "z": 0.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "8cdf2f954a86e4b42adad423e09b4ada",
+        "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+        "x": 3.0035572,
+        "y": 0.61800003,
+        "z": 0.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "53140273081e20944aaa80a69d181c7b",
+        "prefab_asset": "prefabs/Platforms/Mesa_010.prefab",
+        "x": 5.565996,
+        "y": 0.35800797,
+        "z": -0.6,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.47994506,
+        "height": 0.64
+      },
+      {
+        "prefab_guid": "8cdf2f954a86e4b42adad423e09b4ada",
+        "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+        "x": 2.749404,
+        "y": 1.407,
+        "z": 0.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "fdaacd172a153004dab32d266919b2c6",
+        "prefab_asset": "prefabs/Platforms/Mesa_11.prefab",
+        "x": -0.21636677,
+        "y": 0.06300938,
+        "z": -0.6,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48270214,
+        "height": 0.32
+      },
+      {
+        "prefab_guid": "8cdf2f954a86e4b42adad423e09b4ada",
+        "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+        "x": 4.760557,
+        "y": 1.2410383,
+        "z": 0.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.48,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "e5c9f0d9ef8b7664aa4ef803d492af01",
+        "prefab_asset": "prefabs/Platforms/Mesa_12.prefab",
+        "x": 2.3916917,
+        "y": 0.059613287,
+        "z": 0.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "width": 0.4835217,
+        "height": 0.32
+      }
+    ]
+  },
+  {
+    "scene_file": "Scenes/Menu.unity",
+    "scene_name": "Menu",
+    "backgrounds": [
+      {
+        "game_object": "Level 1 Desert Scene - Full Background - Copy",
+        "sprite_guid": "5be0eb0725801c64393790bf7cc772e3",
+        "sprite_path": "sprite-sheets/Backgrounds/Level 1 Desert Scene - Full Background - Copy.png",
+        "sorting_order": -10
+      },
+      {
+        "game_object": "Background",
+        "sprite_guid": "dae0a439edc61ea4cb9e9c719ae4b402",
+        "sprite_path": "sprite-sheets/Backgrounds/Title Screen/title_screen_background_only.png",
+        "sorting_order": -5
+      }
+    ],
+    "player_spawn": {
+      "x": -0.433,
+      "y": -0.71,
+      "z": 0.5
+    },
+    "platforms": []
+  },
+  {
+    "scene_file": "Scenes/SpeechTest.unity",
+    "scene_name": "SpeechTest",
+    "backgrounds": [],
+    "player_spawn": {
+      "x": -2.7175908,
+      "y": -0.094,
+      "z": 0.5
+    },
+    "platforms": [
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 22.54641,
+        "y": 0.403,
+        "z": 0.0,
+        "scale_x": 1.7956,
+        "scale_y": 1.192,
+        "width": 0.287296,
+        "height": 0.19072
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 22.16841,
+        "y": 0.51,
+        "z": 0.0,
+        "scale_x": 2.3968368,
+        "scale_y": 2.4612606,
+        "width": 0.383493888,
+        "height": 0.39380169600000003
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 7.7380085,
+        "y": 0.414,
+        "z": 0.0,
+        "scale_x": 8.609555,
+        "scale_y": 6.1361175,
+        "width": 1.3775288,
+        "height": 0.9817788000000001
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 1.3484087,
+        "y": 0.45,
+        "z": 0.0,
+        "scale_x": 2.3968,
+        "scale_y": 1.927,
+        "width": 0.383488,
+        "height": 0.30832000000000004
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 21.618408,
+        "y": 1.13,
+        "z": 0.0,
+        "scale_x": 1.328,
+        "scale_y": 1.326,
+        "width": 0.21248,
+        "height": 0.21216000000000002
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 32.54751,
+        "y": 0.2339,
+        "z": 0.0,
+        "scale_x": 3.2652533,
+        "scale_y": 1.286688,
+        "width": 0.522440528,
+        "height": 0.20587008
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 13.007109,
+        "y": 1.44,
+        "z": 0.0,
+        "scale_x": 2.0,
+        "scale_y": 1.0,
+        "width": 0.32,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 20.30781,
+        "y": 0.5298,
+        "z": 0.0,
+        "scale_x": 5.5998583,
+        "scale_y": 7.672,
+        "width": 0.8959773280000001,
+        "height": 1.22752
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 31.64341,
+        "y": 0.017,
+        "z": 0.0,
+        "scale_x": 5.8950424,
+        "scale_y": 1.4415001,
+        "width": 0.943206784,
+        "height": 0.230640016
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 16.203009,
+        "y": 0.0648,
+        "z": 0.0,
+        "scale_x": 5.4697547,
+        "scale_y": 1.7264999,
+        "width": 0.8751607520000001,
+        "height": 0.276239984
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 28.493408,
+        "y": 1.9512,
+        "z": 0.0,
+        "scale_x": 1.486,
+        "scale_y": 2.1764998,
+        "width": 0.23776,
+        "height": 0.34823996800000007
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 4.2584085,
+        "y": 0.46,
+        "z": 0.0,
+        "scale_x": 19.565681,
+        "scale_y": 0.7915,
+        "width": 3.1305089600000002,
+        "height": 0.12664
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 25.26931,
+        "y": 1.7021,
+        "z": 0.0,
+        "scale_x": 44.85581,
+        "scale_y": 0.99173844,
+        "width": 7.1769296,
+        "height": 0.1586781504
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 9.367609,
+        "y": 1.433,
+        "z": 0.0,
+        "scale_x": 2.998,
+        "scale_y": 1.0585,
+        "width": 0.47968000000000005,
+        "height": 0.16936
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 17.950708,
+        "y": 0.3107,
+        "z": 0.0,
+        "scale_x": 5.8036,
+        "scale_y": 4.7995,
+        "width": 0.9285760000000001,
+        "height": 0.76792
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 33.03341,
+        "y": 0.358,
+        "z": 0.0,
+        "scale_x": 1.2924,
+        "scale_y": 1.055,
+        "width": 0.206784,
+        "height": 0.1688
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 18.85921,
+        "y": 0.405,
+        "z": 0.0,
+        "scale_x": 4.0668,
+        "scale_y": 6.0,
+        "width": 0.6506879999999999,
+        "height": 0.96
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 21.3132,
+        "y": 0.663,
+        "z": 0.0,
+        "scale_x": 1.2843274,
+        "scale_y": 9.2755,
+        "width": 0.205492384,
+        "height": 1.4840799999999998
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 0.278409,
+        "y": 0.0,
+        "z": 0.0,
+        "scale_x": 5.8036,
+        "scale_y": 1.326,
+        "width": 0.9285760000000001,
+        "height": 0.21216000000000002
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 5.605109,
+        "y": 0.62,
+        "z": 0.0,
+        "scale_x": 11.148003,
+        "scale_y": 1.0585,
+        "width": 1.78368048,
+        "height": 0.16936
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 20.99701,
+        "y": 0.6206,
+        "z": 0.0,
+        "scale_x": 1.7956,
+        "scale_y": 8.674,
+        "width": 0.287296,
+        "height": 1.38784
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 17.07421,
+        "y": 0.16,
+        "z": 0.0,
+        "scale_x": 3.666,
+        "scale_y": 3.4635,
+        "width": 0.58656,
+        "height": 0.55416
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 21.878408,
+        "y": 0.87,
+        "z": 0.0,
+        "scale_x": 1.4612278,
+        "scale_y": 1.326,
+        "width": 0.23379644800000002,
+        "height": 0.21216000000000002
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 19.55391,
+        "y": 0.4816,
+        "z": 0.0,
+        "scale_x": 2.596933,
+        "scale_y": 7.071118,
+        "width": 0.41550928,
+        "height": 1.13137888
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 6.8152094,
+        "y": 0.0795,
+        "z": 0.0,
+        "scale_x": 1.8339434,
+        "scale_y": 1.9057897,
+        "width": 0.29343094399999997,
+        "height": 0.304926352
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 3.2269087,
+        "y": 0.66,
+        "z": 0.0,
+        "scale_x": 1.996,
+        "scale_y": 1.5929999,
+        "width": 0.31936000000000003,
+        "height": 0.254879984
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 33.28381,
+        "y": 1.2859,
+        "z": 0.0,
+        "scale_x": 1.8728,
+        "scale_y": 16.9905,
+        "width": 0.299648,
+        "height": 2.71848
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 26.383408,
+        "y": 2.217,
+        "z": 0.0,
+        "scale_x": 22.0,
+        "scale_y": 1.0,
+        "width": 3.52,
+        "height": 0.16
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 24.28241,
+        "y": 1.858,
+        "z": 0.0,
+        "scale_x": 1.2152,
+        "scale_y": 0.939,
+        "width": 0.19443200000000002,
+        "height": 0.15023999999999998
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 11.038408,
+        "y": 1.3,
+        "z": 0.0,
+        "scale_x": 27.381514,
+        "scale_y": 0.724552,
+        "width": 4.38104224,
+        "height": 0.11592832
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 1.7184086,
+        "y": 0.76,
+        "z": 0.0,
+        "scale_x": 5.2692,
+        "scale_y": 0.7915,
+        "width": 0.8430719999999999,
+        "height": 0.12664
+      }
+    ]
+  },
+  {
+    "scene_file": "Scenes/UFO_Finale.unity",
+    "scene_name": "UFO_Finale",
+    "backgrounds": [],
+    "player_spawn": {
+      "x": -2.149,
+      "y": 0.058,
+      "z": 0.0
+    },
+    "platforms": [
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 7.09,
+        "y": -1.4621,
+        "z": 0.1,
+        "scale_x": 17.82245,
+        "scale_y": 17.0256,
+        "width": 2.851592,
+        "height": 2.7240960000000003
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 8.45,
+        "y": -6.9119997,
+        "z": 0.1,
+        "scale_x": 72.19,
+        "scale_y": 24.0,
+        "width": 11.5504,
+        "height": 3.84
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": 4.238,
+        "y": -1.4621,
+        "z": 0.1,
+        "scale_x": 17.82245,
+        "scale_y": 17.0256,
+        "width": 2.851592,
+        "height": 2.7240960000000003
+      },
+      {
+        "prefab_guid": "1fd63a956d6c84b5b98d1f2980a9bcb6",
+        "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+        "x": -0.392,
+        "y": -1.468,
+        "z": 0.1,
+        "scale_x": 40.03801,
+        "scale_y": 17.0256,
+        "width": 6.4060816,
+        "height": 2.7240960000000003
+      }
+    ]
+  }
+]

@@ -1,0 +1,175 @@
+{
+  "scenes": {
+    "sandbox": {
+      "key": "GameplayScene",
+      "name": "Sandbox - Phase 1",
+      "background": {
+        "key": "bg-sandbox",
+        "file": "assets/main-scene-background.png",
+        "displayWidth": 1280,
+        "displayHeight": 720
+      },
+      "platforms": [
+        {
+          "type": "ground",
+          "x": 640,
+          "y": 700,
+          "width": 1280,
+          "height": 40,
+          "tint": "0x8b4513"
+        },
+        {
+          "type": "platform",
+          "x": 200,
+          "y": 550,
+          "width": 150,
+          "height": 20,
+          "tint": "0x654321"
+        },
+        {
+          "type": "platform",
+          "x": 640,
+          "y": 450,
+          "width": 200,
+          "height": 20,
+          "tint": "0x654321"
+        },
+        {
+          "type": "platform",
+          "x": 1080,
+          "y": 350,
+          "width": 150,
+          "height": 20,
+          "tint": "0x654321"
+        }
+      ],
+      "spawn": {
+        "x": 640,
+        "y": 300
+      }
+    },
+    "desert_1": {
+      "key": "GameplayScene",
+      "name": "Level 1 - Desert",
+      "background": {
+        "key": "bg-desert-1",
+        "file": "assets/sprites/backgrounds/Level 1 Desert Scene - Full Background - Copy.png",
+        "source": "sprite-sheets/Backgrounds/Level 1 Desert Scene - Full Background - Copy.png",
+        "sortingOrder": -20,
+        "displayWidth": 1280,
+        "displayHeight": 720
+      },
+      "platforms": [],
+      "spawn": {
+        "x": 640,
+        "y": 300
+      },
+      "spawnUnity": {
+        "x": 10.417,
+        "y": 0.289,
+        "z": 0.5
+      },
+      "unityScene": "Scenes/L1_Desert_Pt1.unity",
+      "unityMappingMargins": {
+        "x": 160,
+        "top": 80,
+        "bottom": 120
+      },
+      "unityPlatformCount": 47
+    },
+    "diner": {
+      "key": "GameplayScene",
+      "name": "Level 2 - Diner",
+      "background": {
+        "key": "bg-diner",
+        "file": "assets/sprites/backgrounds/diner_interior_v1.png",
+        "source": "sprite-sheets/Backgrounds/UFO Diner/diner_interior_v1.png",
+        "sortingOrder": 0,
+        "displayWidth": 1280,
+        "displayHeight": 720
+      },
+      "platforms": [],
+      "spawn": {
+        "x": 640,
+        "y": 300
+      },
+      "spawnUnity": {
+        "x": 0.919,
+        "y": 0.549,
+        "z": 0.5
+      },
+      "unityScene": "Scenes/L2_Diner_Pt2.unity",
+      "unityMappingMargins": {
+        "x": 160,
+        "top": 80,
+        "bottom": 120
+      },
+      "unityPlatformCount": 0
+    },
+    "desert_cave": {
+      "key": "GameplayScene",
+      "name": "Level 3 - Desert Dig",
+      "background": {
+        "key": "bg-desert-cave",
+        "file": "assets/sprites/backgrounds/Desert Dig Scene - Full Background.png",
+        "source": "sprite-sheets/Backgrounds/Cave Scene/Desert Dig Scene - Full Background.png",
+        "sortingOrder": -5,
+        "displayWidth": 1280,
+        "displayHeight": 720,
+        "layers": [
+          {
+            "key": "bg-desert-cave-layer-1",
+            "file": "assets/sprites/backgrounds/Level_3_Desert_Cave_Background_01.png",
+            "sortingOrder": -20
+          }
+        ]
+      },
+      "platforms": [],
+      "spawn": {
+        "x": 640,
+        "y": 300
+      },
+      "spawnUnity": {
+        "x": -2.409,
+        "y": 0.054,
+        "z": 0.5
+      },
+      "unityScene": "Scenes/L3_DesertDig_Pt3 1.unity",
+      "unityMappingMargins": {
+        "x": 160,
+        "top": 80,
+        "bottom": 120
+      },
+      "unityPlatformCount": 10
+    },
+    "menu": {
+      "key": "MenuScene",
+      "name": "Main Menu",
+      "background": {
+        "key": "bg-menu",
+        "file": "assets/sprites/backgrounds/title_screen_background_only.png",
+        "source": "sprite-sheets/Backgrounds/Title Screen/title_screen_background_only.png",
+        "sortingOrder": -5,
+        "displayWidth": 1280,
+        "displayHeight": 720
+      },
+      "platforms": [],
+      "spawn": {
+        "x": 640,
+        "y": 360
+      },
+      "spawnUnity": {
+        "x": -0.433,
+        "y": -0.71,
+        "z": 0.5
+      },
+      "unityScene": "Scenes/Menu.unity",
+      "unityMappingMargins": {
+        "x": 160,
+        "top": 80,
+        "bottom": 120
+      },
+      "unityPlatformCount": 0
+    }
+  }
+}
