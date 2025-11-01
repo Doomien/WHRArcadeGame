@@ -137,8 +137,8 @@
       "unityScene": "Scenes/L3_DesertDig_Pt3 1.unity",
       "unityMappingMargins": {
         "x": 160,
-        "top": 80,
-        "bottom": 120
+        "top": 220,
+        "bottom": 250
       },
       "unityPlatformCount": 10
     },

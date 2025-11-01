@@ -22,6 +22,11 @@ class GameplayScene extends Phaser.Scene {
     this.playerPlatformCollider = null;
     this.platformDebugGraphics = null;
     this.unityPlatformRects = [];
+    this.currentMovementMode = 'platformer';
+    this.defaultGravityY = 0;
+    this.unityColliderShapes = [];
+    this.adventureBlockerColliders = [];
+    this.adventureTriggerOverlaps = [];
   }
 
   preload() {
@@ -46,6 +51,8 @@ class GameplayScene extends Phaser.Scene {
   create() {
     this.cameras.main.setBackgroundColor('#87ceeb');
     this.physics.world.setBounds(0, 0, GAME_WIDTH, GAME_HEIGHT);
+    this.defaultGravityY = this.physics.world.gravity.y;
+    this.cameras.main.setBounds(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
     this.drawBoundsDebug();
 
@@ -61,6 +68,9 @@ class GameplayScene extends Phaser.Scene {
 
     this.inputMapper = new InputMapper(this);
     this.player = new RayPlayer(this, this.spawnPoint.x, this.spawnPoint.y);
+    this.cameras.main.startFollow(this.player.sprite, true, 0.15, 0.15);
+    this.cameras.main.setZoom(4);
+    this.cameras.main.roundPixels = true;
     this.player.sprite.play('ray-idle');
 
     this.loadScene(this.currentSceneKey);
@@ -138,7 +148,12 @@ class GameplayScene extends Phaser.Scene {
     }
 
     const cache = this.cache && this.cache.json;
-    if (!cache || !cache.exists('scene-configs') || !cache.exists('unity-scenes')) {
+    if (
+      !cache
+      || !cache.exists('scene-configs')
+      || !cache.exists('unity-scenes')
+      || !cache.exists('unity-platform-textures')
+    ) {
       this.sceneLoader.preloadConfig();
       const onConfigLoaded = () => {
         this.loadScene(sceneKey);
@@ -148,6 +163,9 @@ class GameplayScene extends Phaser.Scene {
       }
       if (!cache || !cache.exists('unity-scenes')) {
         this.load.once('filecomplete-json-unity-scenes', onConfigLoaded);
+      }
+      if (!cache || !cache.exists('unity-platform-textures')) {
+        this.load.once('filecomplete-json-unity-platform-textures', onConfigLoaded);
       }
       if (!this.load.isLoading()) {
         this.load.start();
@@ -175,12 +193,20 @@ class GameplayScene extends Phaser.Scene {
       this.spawnPoint = sceneObjects.spawn
         ? { x: sceneObjects.spawn.x, y: sceneObjects.spawn.y }
         : this.spawnPoint;
+      this.applyMovementMode(sceneObjects.movementMode || 'platformer');
 
       this.resetPlayerForScene();
       this.buildUnityPlatforms(sceneObjects.unityPlatforms || []);
+      this.buildUnityColliders(sceneObjects.unityColliders || []);
 
       this.playerGroundCollider = this.physics.add.collider(this.player.sprite, this.ground);
-      this.playerPlatformCollider = this.physics.add.collider(this.player.sprite, this.platforms);
+      this.playerPlatformCollider = this.physics.add.collider(
+        this.player.sprite,
+        this.platforms,
+        null,
+        this.shouldCollideWithUnityPlatform,
+        this
+      );
       if (PLATFORM_DEBUG) {
         this.renderPlatformDebug();
       }
@@ -226,14 +252,23 @@ class GameplayScene extends Phaser.Scene {
       this.platformDebugGraphics.destroy();
       this.platformDebugGraphics = null;
     }
-    if (this.unityPlatformRects) {
-      this.unityPlatformRects.forEach((rect) => {
-        if (rect.body) {
-          rect.body.destroy();
+    this.unityPlatformRects = [];
+    if (this.adventureBlockerColliders.length) {
+      this.adventureBlockerColliders.forEach((collider) => collider?.destroy?.());
+      this.adventureBlockerColliders = [];
+    }
+    if (this.adventureTriggerOverlaps.length) {
+      this.adventureTriggerOverlaps.forEach((overlap) => overlap?.destroy?.());
+      this.adventureTriggerOverlaps = [];
+    }
+    if (this.unityColliderShapes.length) {
+      this.unityColliderShapes.forEach((shape) => {
+        if (shape.body) {
+          shape.body.destroy();
         }
-        rect.destroy();
+        shape.destroy();
       });
-      this.unityPlatformRects = [];
+      this.unityColliderShapes = [];
     }
     if (this.ground) {
       this.ground.clear(true, true);
@@ -256,29 +291,176 @@ class GameplayScene extends Phaser.Scene {
     this.player.sprite.play('ray-idle', true);
   }
 
-  buildUnityPlatforms(platforms) {
-    this.unityPlatformRects.forEach((entry) => {
-      if (entry.rect.body) {
-        entry.rect.body.destroy();
+  applyMovementMode(mode) {
+    this.currentMovementMode = mode;
+    const world = this.physics.world;
+    if (mode === 'adventure') {
+      world.gravity.y = 0;
+      this.cameras.main.setZoom(2);
+      if (this.player?.setMovementMode) {
+        this.player.setMovementMode('adventure');
       }
-      entry.rect.destroy();
-    });
+    } else {
+      world.gravity.y = this.defaultGravityY;
+      this.cameras.main.setZoom(4);
+      if (this.player?.setMovementMode) {
+        this.player.setMovementMode('platformer');
+      }
+    }
+  }
+
+  buildUnityPlatforms(platforms) {
     this.unityPlatformRects = [];
 
-    platforms.forEach(({ phaser, size }) => {
+    if (!this.platforms) {
+      this.platforms = this.physics.add.staticGroup();
+    }
+
+    platforms.forEach(({ phaser, size, texture, flipX, flipY, physics }) => {
       if (!size || !size.width || !size.height) {
         return;
       }
-      const width = Math.max(4, size.width);
-      const height = Math.max(4, size.height);
-      const centerX = phaser.x - width / 2;
-      const centerY = phaser.y - height / 2;
-      const rect = this.add.rectangle(centerX, centerY, width, height, 0x00ffff, 0.12);
-      this.physics.add.existing(rect, true);
-      rect.body.setSize(width, height);
-      rect.body.setOffset(-width / 2, -height / 2);
-      this.unityPlatformRects.push({ rect, centerX, centerY, width, height });
+      // Use minimum of 1 instead of 4 to preserve small platforms
+      const width = Math.max(1, size.width);
+      const height = Math.max(1, size.height);
+      const textureKey = texture && texture.textureKey && this.textures.exists(texture.textureKey)
+        ? texture.textureKey
+        : 'platform';
+      const frame = texture && texture.frame ? texture.frame : undefined;
+      const sprite = this.platforms.create(phaser.x, phaser.y, textureKey, frame);
+      sprite.setOrigin(0.5, 0.5);
+      sprite.setDisplaySize(width, height);
+      if (flipX) {
+        sprite.setFlipX(true);
+      }
+      if (flipY) {
+        sprite.setFlipY(true);
+      }
+      const body = sprite.body;
+      if (body && body.setSize) {
+        // With origin at 0.5, 0.5, the body centers automatically
+        // No offset needed unless we want to adjust the collision box
+        body.setSize(width, height);
+      }
+      if (physics && physics.type === 'oneway') {
+        if (body && body.checkCollision) {
+          body.checkCollision.down = false;
+          body.checkCollision.left = false;
+          body.checkCollision.right = false;
+          body.checkCollision.up = true;
+        }
+      }
+      sprite.refreshBody();
+      const meta = {
+        type: physics?.type || 'solid',
+        asset: physics?.asset || null,
+        width,
+        height
+      };
+      sprite.setData('unityPlatform', meta);
+      this.unityPlatformRects.push({
+        centerX: phaser.x,
+        centerY: phaser.y,
+        width,
+        height,
+        type: meta.type
+      });
     });
+  }
+
+  buildUnityColliders(colliders) {
+    this.unityColliderShapes.forEach((shape) => {
+      if (shape.body) {
+        shape.body.destroy();
+      }
+      shape.destroy();
+    });
+    this.unityColliderShapes = [];
+    this.adventureBlockerColliders.forEach((collider) => collider?.destroy?.());
+    this.adventureBlockerColliders = [];
+    this.adventureTriggerOverlaps.forEach((overlap) => overlap?.destroy?.());
+    this.adventureTriggerOverlaps = [];
+
+    if (!Array.isArray(colliders) || !colliders.length) {
+      return;
+    }
+
+    const enablePhysics = this.currentMovementMode === 'adventure';
+    colliders.forEach((data) => {
+      const width = Math.max(4, data.size?.width || 0);
+      const height = Math.max(4, data.size?.height || 0);
+      const color = data.isTrigger ? 0x31c854 : 0x1971ff;
+      const alpha = PLATFORM_DEBUG ? 0.2 : 0.0;
+      const rect = this.add.rectangle(data.phaser.x, data.phaser.y, width, height, color, alpha);
+      rect.setData('unityCollider', data);
+      this.physics.add.existing(rect, true);
+      if (rect.body?.setSize) {
+        rect.body.setSize(width, height);
+        rect.body.setOffset(-width / 2, -height / 2);
+      }
+      if (!PLATFORM_DEBUG) {
+        rect.setVisible(false);
+      }
+
+      if (enablePhysics) {
+        if (data.isTrigger) {
+          if (rect.body) {
+            rect.body.checkCollision.none = true;
+          }
+          const overlap = this.physics.add.overlap(
+            this.player.sprite,
+            rect,
+            (_, triggerShape) => this.handleAdventureTrigger(triggerShape),
+            undefined,
+            this
+          );
+          this.adventureTriggerOverlaps.push(overlap);
+        } else {
+          const collider = this.physics.add.collider(this.player.sprite, rect);
+          this.adventureBlockerColliders.push(collider);
+        }
+      }
+
+      this.unityColliderShapes.push(rect);
+    });
+  }
+
+  handleAdventureTrigger(triggerShape) {
+    const data = triggerShape?.getData?.('unityCollider');
+    if (!data) {
+      return;
+    }
+    const name = data.gameObject || 'trigger';
+    // Placeholder behaviour: report trigger activation. Replace with adventure interactions.
+    console.log(`[Adventure] Trigger activated: ${name}`);
+  }
+
+  shouldCollideWithUnityPlatform(playerSprite, platformSprite) {
+    const meta = platformSprite?.getData?.('unityPlatform');
+    if (!meta || meta.type !== 'oneway') {
+      return true;
+    }
+    const playerBody = playerSprite.body;
+    const platformBody = platformSprite.body;
+    if (!playerBody || !platformBody) {
+      return true;
+    }
+
+    // Dynamic tolerance based on velocity and zoom to prevent fall-through issues
+    const zoom = this.cameras.main.zoom || 1;
+    const baseTolerance = 2.0;  // Base tolerance in world units
+    const velocityFactor = Math.abs(playerBody.velocity.y) * 0.016;  // Scale with falling speed
+    const tolerance = (baseTolerance + velocityFactor) / zoom;  // Account for zoom level
+
+    const isFalling = playerBody.velocity.y >= 0;
+    const platformTop = platformBody.top;
+    const playerBottom = playerBody.bottom;
+    const prevBottom = playerBody.prev ? playerBody.prev.y + playerBody.halfHeight : playerBottom;
+
+    if (isFalling && playerBottom >= platformTop - tolerance && prevBottom <= platformTop + tolerance) {
+      return true;
+    }
+    return false;
   }
 
   renderPlatformDebug() {
@@ -288,11 +470,26 @@ class GameplayScene extends Phaser.Scene {
     } else {
       this.platformDebugGraphics = this.add.graphics();
     }
-    this.platformDebugGraphics.lineStyle(1, 0xff0070, 0.7);
-    this.platformDebugGraphics.fillStyle(0xff0070, 0.4);
-    this.unityPlatformRects.forEach(({ centerX, centerY }) => {
-      this.platformDebugGraphics.fillCircle(centerX, centerY, 6);
-      this.platformDebugGraphics.strokeCircle(centerX, centerY, 8);
+    this.unityPlatformRects.forEach(({ centerX, centerY, width, height, type }) => {
+      const halfW = width / 2;
+      const halfH = height / 2;
+      const strokeColor = type === 'oneway' ? 0xffa000 : 0x00ffff;
+      this.platformDebugGraphics.lineStyle(1, strokeColor, 0.8);
+      this.platformDebugGraphics.strokeRect(centerX - halfW, centerY - halfH, width, height);
+      this.platformDebugGraphics.fillStyle(0xff0070, 0.5);
+      this.platformDebugGraphics.fillCircle(centerX, centerY, 4);
+    });
+    this.unityColliderShapes.forEach((shape) => {
+      const data = shape.getData('unityCollider') || {};
+      const width = shape.width || shape.displayWidth || 0;
+      const height = shape.height || shape.displayHeight || 0;
+      const halfW = width / 2;
+      const halfH = height / 2;
+      const strokeColor = data.isTrigger ? 0x31c854 : 0x1971ff;
+      this.platformDebugGraphics.lineStyle(1, strokeColor, 0.9);
+      this.platformDebugGraphics.strokeRect(shape.x - halfW, shape.y - halfH, width, height);
+      this.platformDebugGraphics.fillStyle(strokeColor, 0.25);
+      this.platformDebugGraphics.fillCircle(shape.x, shape.y, 3);
     });
   }
 }

@@ -9,7 +9,9 @@ class RayPlayer {
     this.sprite.setDepth(5);
     this.sprite.setCollideWorldBounds(true);
     this.sprite.setBounce(0);
-    this.sprite.setDrag(800, 0);
+    this.platformerDrag = { x: 800, y: 0 };
+    this.adventureDrag = { x: 400, y: 400 };
+    this.sprite.setDrag(this.platformerDrag.x, this.platformerDrag.y);
     this.sprite.body.setSize(20, 30);
     this.sprite.body.setOffset(6, 2);
 
@@ -29,10 +31,17 @@ class RayPlayer {
     this.digStartTime = 0;
     this.lastGroundedTime = 0;
     this.attackHitbox = null;
+    this.movementMode = 'platformer';
   }
 
   update(time, delta, intent) {
     const body = this.sprite.body;
+    if (this.movementMode === 'adventure') {
+      this.updateAdventure(time, intent);
+      this.updatePhysicsClamp();
+      return;
+    }
+
     this.isGrounded = body.blocked.down || body.touching.down;
 
     if (this.isGrounded) {
@@ -198,6 +207,12 @@ class RayPlayer {
 
   updatePhysicsClamp() {
     const body = this.sprite.body;
+    if (this.movementMode === 'adventure') {
+      const limit = this.walkSpeed;
+      body.velocity.x = Phaser.Math.Clamp(body.velocity.x, -limit, limit);
+      body.velocity.y = Phaser.Math.Clamp(body.velocity.y, -limit, limit);
+      return;
+    }
     const maxVelocityX = 220;
     const maxVelocityY = 650;
 
@@ -256,6 +271,131 @@ class RayPlayer {
 
   die() {
     console.log('Player died!');
+  }
+
+  setMovementMode(mode) {
+    if (this.movementMode === mode) {
+      return;
+    }
+    this.movementMode = mode;
+    if (mode === 'adventure') {
+      this.sprite.body.setAllowGravity(false);
+      this.sprite.setDrag(this.adventureDrag.x, this.adventureDrag.y);
+      this.sprite.body.setMaxVelocity(this.walkSpeed, this.walkSpeed);
+      this.sprite.body.setVelocity(0, 0);
+    } else {
+      this.sprite.body.setAllowGravity(true);
+      this.sprite.setDrag(this.platformerDrag.x, this.platformerDrag.y);
+      this.sprite.body.setMaxVelocity(600, 900);
+    }
+  }
+
+  updateAdventure(time, intent) {
+    const body = this.sprite.body;
+    if (!body) {
+      return;
+    }
+    body.setAllowGravity(false);
+    let velocityX = 0;
+    let velocityY = 0;
+    const speed = this.walkSpeed;
+
+    switch (intent) {
+      case 'WALK_LEFT':
+        velocityX = -speed;
+        break;
+      case 'WALK_RIGHT':
+        velocityX = speed;
+        break;
+      case 'WALK_UP':
+        velocityY = -speed;
+        break;
+      case 'WALK_DOWN':
+        velocityY = speed;
+        break;
+      case 'WALK_UP_LEFT':
+        velocityX = -speed;
+        velocityY = -speed;
+        break;
+      case 'WALK_UP_RIGHT':
+        velocityX = speed;
+        velocityY = -speed;
+        break;
+      case 'WALK_DOWN_LEFT':
+        velocityX = -speed;
+        velocityY = speed;
+        break;
+      case 'WALK_DOWN_RIGHT':
+        velocityX = speed;
+        velocityY = speed;
+        break;
+      case 'ATTACK':
+      case 'ATTACK_LEFT':
+      case 'ATTACK_RIGHT':
+      case 'ATTACK_UP':
+      case 'ATTACK_DOWN':
+      case 'ATTACK_UP_LEFT':
+      case 'ATTACK_UP_RIGHT':
+      case 'ATTACK_DOWN_LEFT':
+      case 'ATTACK_DOWN_RIGHT':
+        this.attack(intent, time);
+        velocityX = 0;
+        velocityY = 0;
+        break;
+      case 'DIG_LEFT':
+      case 'DIG_RIGHT':
+      case 'DIG_DOWN':
+        // Digging not supported in adventure mode; ignore.
+        velocityX = 0;
+        velocityY = 0;
+        break;
+      default:
+        velocityX = 0;
+        velocityY = 0;
+        break;
+    }
+
+    if (velocityX !== 0 && velocityY !== 0) {
+      const normalizer = Math.SQRT1_2;
+      velocityX *= normalizer;
+      velocityY *= normalizer;
+    }
+
+    body.setVelocity(velocityX, velocityY);
+    this.isGrounded = true;
+
+    if (velocityX === 0 && velocityY === 0) {
+      this.sprite.setVelocity(0, 0);
+      if (!this.sprite.anims.isPlaying || this.sprite.anims.currentAnim.key !== 'ray-idle') {
+        this.sprite.play('ray-idle', true);
+      }
+      return;
+    }
+
+    this.playAdventureAnimation(velocityX, velocityY);
+  }
+
+  playAdventureAnimation(velocityX, velocityY) {
+    let animKey = 'ray-walk-right';
+    if (Math.abs(velocityX) >= Math.abs(velocityY)) {
+      if (velocityX < 0) {
+        animKey = 'ray-walk-left';
+        this.sprite.setFlipX(true);
+        this.facing = -1;
+      } else {
+        animKey = 'ray-walk-right';
+        this.sprite.setFlipX(false);
+        this.facing = 1;
+      }
+    } else if (velocityY < 0) {
+      animKey = 'ray-walk-up';
+    } else {
+      animKey = 'ray-walk-down';
+    }
+
+    if (!this.sprite.anims.isPlaying || this.sprite.anims.currentAnim.key !== animKey) {
+      this.sprite.play(animKey, true);
+    }
   }
 
   destroy() {

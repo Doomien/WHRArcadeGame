@@ -1,0 +1,146 @@
+{
+    "id": "3c5d13da-1d81-4d31-bc2c-1852c620346f",
+    "sceneType": "SCENE",
+    "settings": {
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "DevTestScene"
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "f79bebb1-dfdd-47fb-aedc-5b3f5d8f4642",
+            "label": "bg_sandbox",
+            "texture": {
+                "key": "bg-sandbox"
+            },
+            "x": 1638,
+            "y": 895
+        },
+        {
+            "type": "Image",
+            "id": "2d448492-5a90-4791-bc6b-8631470a6697",
+            "label": "bg_menu",
+            "texture": {
+                "key": "bg-menu"
+            },
+            "x": 483,
+            "y": 357,
+            "scaleX": 3,
+            "scaleY": 3
+        },
+        {
+            "type": "Image",
+            "id": "3b40ed77-10cd-4e9d-b306-ba03e262e581",
+            "label": "unity_platform_floating_1x5",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 80,
+            "hitArea.height": 16,
+            "texture": {
+                "key": "unity-platform-floating-1x5"
+            },
+            "x": 4,
+            "y": 536
+        },
+        {
+            "type": "Image",
+            "id": "8590f647-e52a-4d79-8e95-338c832df2c9",
+            "label": "unity_platform_floating_1x",
+            "texture": {
+                "key": "unity-platform-floating-1x5"
+            },
+            "x": 108,
+            "y": 509
+        },
+        {
+            "type": "Image",
+            "id": "c2fa84d4-c50f-463b-a7b7-cf485c54993b",
+            "label": "unity_platform_floating_1x_1",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 80,
+            "hitArea.height": 16,
+            "texture": {
+                "key": "unity-platform-floating-1x5"
+            },
+            "x": 203,
+            "y": 499
+        },
+        {
+            "type": "Image",
+            "id": "5e1812a4-e74b-4ee9-ac63-2024f898c7cf",
+            "label": "unity_platform_floating_1x_2",
+            "texture": {
+                "key": "unity-platform-floating-1x5"
+            },
+            "x": 186.6634228047627,
+            "y": 498.08785139331206
+        },
+        {
+            "type": "Image",
+            "id": "3d2cf5fd-9528-4460-91a5-f42bf2098ab2",
+            "label": "unity_platform_floating_1x8",
+            "hitArea.shape": "PIXEL_PERFECT",
+            "texture": {
+                "key": "unity-platform-floating-1x8"
+            },
+            "x": 320,
+            "y": 500
+        },
+        {
+            "type": "Image",
+            "id": "53885c04-5354-41d6-bc9f-38405e9b05b2",
+            "label": "unity_platform_mesa_05_b",
+            "texture": {
+                "key": "unity-platform-mesa-05-b"
+            },
+            "x": 519,
+            "y": 512
+        },
+        {
+            "type": "ArcadeSprite",
+            "id": "4175d844-7235-44b2-9605-4079c793ab05",
+            "label": "arcadesprite_1",
+            "texture": {},
+            "x": 186,
+            "y": 332,
+            "animationPlayMethod": 1,
+            "animationPreview": true,
+            "body.width": 32,
+            "body.height": 32
+        },
+        {
+            "type": "b2Body",
+            "id": "e8f21b04-089b-4ef5-9321-d842e2436a8b",
+            "label": "b2body_1",
+            "positionX": 220,
+            "positionY": -481
+        },
+        {
+            "type": "Rectangle",
+            "id": "e730c833-1fd8-4eb3-83dc-bd59e4042806",
+            "label": "rectangle_1",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 640,
+            "hitArea.height": 32,
+            "x": 321,
+            "y": 584,
+            "isFilled": true,
+            "width": 640,
+            "height": 32
+        }
+    ],
+    "plainObjects": [
+        {
+            "id": "8ba23c6d-d8e8-49b0-8a92-8d2900500515",
+            "type": "Collider",
+            "label": "collider",
+            "scope": "LOCAL"
+        }
+    ],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

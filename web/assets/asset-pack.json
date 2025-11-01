@@ -1,0 +1,162 @@
+{
+    "section1": {
+        "files": [
+            {
+                "type": "image",
+                "key": "bg-desert-1",
+                "url": "assets/sprites/backgrounds/Level 1 Desert Scene - Full Background - Copy.png"
+            },
+            {
+                "type": "image",
+                "key": "bg-desert-cave",
+                "url": "assets/sprites/backgrounds/Desert Dig Scene - Full Background.png"
+            },
+            {
+                "type": "image",
+                "key": "bg-desert-cave-layer-1",
+                "url": "assets/sprites/backgrounds/Level_3_Desert_Cave_Background_01.png"
+            },
+            {
+                "type": "image",
+                "key": "bg-diner",
+                "url": "assets/sprites/backgrounds/diner_interior_v1.png"
+            },
+            {
+                "type": "image",
+                "key": "bg-menu",
+                "url": "assets/sprites/backgrounds/title_screen_background_only.png"
+            },
+            {
+                "type": "image",
+                "key": "bg-sandbox",
+                "url": "assets/main-scene-background.png"
+            },
+            {
+                "url": "assets/sprites/characters/ray/Ray_Ouch_Left 1.2-Sheet.png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "Ray_Ouch_Left 1.2-Sheet"
+            },
+            {
+                "type": "image",
+                "key": "unity-platform-floating-1x3",
+                "url": "assets/sprites/platforms/Floating_1x3.png"
+            },
+            {
+                "type": "image",
+                "key": "unity-platform-floating-1x5",
+                "url": "assets/sprites/platforms/Floating_1x5.png"
+            },
+            {
+                "type": "image",
+                "key": "unity-platform-floating-1x8",
+                "url": "assets/sprites/platforms/Floating_1x8.png"
+            },
+            {
+                "type": "image",
+                "key": "unity-platform-mesa-004",
+                "url": "assets/sprites/platforms/Mesa_004.png"
+            },
+            {
+                "type": "image",
+                "key": "unity-platform-mesa-01",
+                "url": "assets/sprites/platforms/Mesa_01.png"
+            },
+            {
+                "type": "image",
+                "key": "unity-platform-mesa-010",
+                "url": "assets/sprites/platforms/Mesa_010.png"
+            },
+            {
+                "type": "image",
+                "key": "unity-platform-mesa-04-d",
+                "url": "assets/sprites/platforms/Mesa_04_D.png"
+            },
+            {
+                "type": "image",
+                "key": "unity-platform-mesa-05-b",
+                "url": "assets/sprites/platforms/Mesa_05_B.png"
+            },
+            {
+                "type": "image",
+                "key": "unity-platform-mesa-06",
+                "url": "assets/sprites/platforms/mesa_06.png"
+            },
+            {
+                "type": "image",
+                "key": "unity-platform-mesa-06-light-a",
+                "url": "assets/sprites/platforms/mesa_06_Light_A.png"
+            },
+            {
+                "type": "image",
+                "key": "unity-platform-mesa-07",
+                "url": "assets/sprites/platforms/mesa_07.png"
+            },
+            {
+                "type": "image",
+                "key": "unity-platform-mesa-08-a",
+                "url": "assets/sprites/platforms/mesa_08_A.png"
+            },
+            {
+                "type": "image",
+                "key": "unity-platform-mesa-09",
+                "url": "assets/sprites/platforms/Mesa_09.png"
+            },
+            {
+                "type": "image",
+                "key": "unity-platform-mesa-09-a",
+                "url": "assets/sprites/platforms/Mesa_09_A.png"
+            },
+            {
+                "type": "image",
+                "key": "unity-platform-mesa-10-a",
+                "url": "assets/sprites/platforms/Mesa_10_A.png"
+            },
+            {
+                "type": "image",
+                "key": "unity-platform-mesa-11",
+                "url": "assets/sprites/platforms/Mesa_11.png"
+            },
+            {
+                "type": "image",
+                "key": "unity-platform-mesa-11-a",
+                "url": "assets/sprites/platforms/Mesa_11_A.png"
+            },
+            {
+                "type": "image",
+                "key": "unity-platform-mesa-12",
+                "url": "assets/sprites/platforms/Mesa_12_B.png"
+            },
+            {
+                "type": "image",
+                "key": "unity-platform-mesa-15-a",
+                "url": "assets/sprites/platforms/mesa_15_A.png"
+            },
+            {
+                "type": "image",
+                "key": "unity-platform-mesa-15-b",
+                "url": "assets/sprites/platforms/mesa_15_B.png"
+            },
+            {
+                "type": "image",
+                "key": "unity-platform-smart-platform",
+                "url": "assets/sprites/platforms/desert_full.png"
+            }
+        ]
+    },
+    "meta": {
+        "app": "Phaser Editor 2D - Asset Pack Editor",
+        "contentType": "phasereditor2d.pack.core.AssetContentType",
+        "url": "https://phasereditor2d.com",
+        "version": 2,
+        "showAllFilesInBlocks": false,
+        "visible": true
+    }
+}

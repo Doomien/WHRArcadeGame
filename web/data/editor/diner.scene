@@ -1,0 +1,30 @@
+{
+  "id": "1342e04e-ef1d-49ff-90b4-4766f1a3487a",
+  "sceneType": "SCENE",
+  "settings": {
+    "preloadPackFiles": [],
+    "createMethodName": "editorCreate",
+    "sceneKey": "diner"
+  },
+  "displayList": [
+    {
+      "type": "Image",
+      "id": "fe6e23b9-4aaf-4345-9264-5189e5c3d359",
+      "label": "bg_diner",
+      "texture": {
+        "key": "bg-diner"
+      },
+      "x": 640.0,
+      "y": 360.0,
+      "scaleX": 1.0,
+      "scaleY": 1.0
+    }
+  ],
+  "plainObjects": [],
+  "meta": {
+    "app": "Phaser Editor - Scene Editor",
+    "url": "https://phaser.io/editor",
+    "contentType": "phasereditor2d.core.scene.SceneContentType",
+    "version": 5
+  }
+}

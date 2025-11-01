@@ -1,5 +1,221 @@
 [
   {
+    "scene_file": "Scenes/Credits.unity",
+    "scene_name": "Credits",
+    "backgrounds": [],
+    "player_spawn": null,
+    "platforms": [],
+    "colliders": [
+      {
+        "game_object": "Ground",
+        "game_object_id": "185295898",
+        "x": 0.0,
+        "y": -1.67,
+        "width": 5.0,
+        "height": 1.0,
+        "offset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": {
+          "x": 5.0,
+          "y": 1.0
+        },
+        "unity_size": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "is_trigger": false
+      },
+      {
+        "game_object": "Right Bound",
+        "game_object_id": "657888708",
+        "x": 2.83,
+        "y": -0.78,
+        "width": 1.0,
+        "height": 1.0,
+        "offset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "unity_size": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "is_trigger": false
+      },
+      {
+        "game_object": "Left Bound",
+        "game_object_id": "897865756",
+        "x": -2.05,
+        "y": -0.78,
+        "width": 1.0,
+        "height": 1.0,
+        "offset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "unity_size": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "is_trigger": false
+      }
+    ]
+  },
+  {
+    "scene_file": "Scenes/High Scores.unity",
+    "scene_name": "High Scores",
+    "backgrounds": [],
+    "player_spawn": null,
+    "platforms": [],
+    "colliders": [
+      {
+        "game_object": "Ground",
+        "game_object_id": "642283158",
+        "x": 0.0,
+        "y": -1.67,
+        "width": 5.0,
+        "height": 1.0,
+        "offset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": {
+          "x": 5.0,
+          "y": 1.0
+        },
+        "unity_size": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "is_trigger": false
+      },
+      {
+        "game_object": "Left Bound",
+        "game_object_id": "1376840908",
+        "x": -2.403,
+        "y": -0.78,
+        "width": 1.0,
+        "height": 1.0,
+        "offset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "unity_size": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "is_trigger": false
+      },
+      {
+        "game_object": "Right Bound",
+        "game_object_id": "1573888704",
+        "x": 2.83,
+        "y": -0.78,
+        "width": 1.0,
+        "height": 1.0,
+        "offset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "unity_size": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "is_trigger": false
+      }
+    ]
+  },
+  {
+    "scene_file": "Scenes/HighScoreEntry.unity",
+    "scene_name": "HighScoreEntry",
+    "backgrounds": [],
+    "player_spawn": null,
+    "platforms": [],
+    "colliders": [
+      {
+        "game_object": "Ground",
+        "game_object_id": "590783145",
+        "x": 0.0,
+        "y": -1.67,
+        "width": 5.0,
+        "height": 1.0,
+        "offset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": {
+          "x": 5.0,
+          "y": 1.0
+        },
+        "unity_size": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "is_trigger": false
+      },
+      {
+        "game_object": "Left Bound",
+        "game_object_id": "1000418544",
+        "x": -2.403,
+        "y": -0.78,
+        "width": 1.0,
+        "height": 1.0,
+        "offset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "unity_size": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "is_trigger": false
+      },
+      {
+        "game_object": "Right Bound",
+        "game_object_id": "1631564022",
+        "x": 2.83,
+        "y": -0.78,
+        "width": 1.0,
+        "height": 1.0,
+        "offset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "unity_size": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "is_trigger": false
+      }
+    ]
+  },
+  {
     "scene_file": "Scenes/L1_Desert_Pt1.unity",
     "scene_name": "L1_Desert_Pt1",
     "backgrounds": [
@@ -594,6 +810,29 @@
         "width": 0.48380053,
         "height": 0.96451986
       }
+    ],
+    "colliders": [
+      {
+        "game_object": "DoorCollider",
+        "game_object_id": "1584240417",
+        "x": 48.23,
+        "y": 0.34303892,
+        "width": 0.4,
+        "height": 0.4680779,
+        "offset": {
+          "x": 0.0,
+          "y": -0.08192216
+        },
+        "scale": {
+          "x": 0.4,
+          "y": 0.5
+        },
+        "unity_size": {
+          "x": 1.0,
+          "y": 0.9361558
+        },
+        "is_trigger": true
+      }
     ]
   },
   {
@@ -612,7 +851,303 @@
       "y": 0.549,
       "z": 0.5
     },
-    "platforms": []
+    "platforms": [],
+    "colliders": [
+      {
+        "game_object": "Lower Bound",
+        "game_object_id": "3937765",
+        "x": 0.013,
+        "y": -0.965,
+        "width": 4.0,
+        "height": 2.0,
+        "offset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": {
+          "x": 4.0,
+          "y": 2.0
+        },
+        "unity_size": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "is_trigger": false
+      },
+      {
+        "game_object": "BoothsCollider",
+        "game_object_id": "266881416",
+        "x": 0.96,
+        "y": 0.122,
+        "width": 1.1,
+        "height": 0.15,
+        "offset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": {
+          "x": 1.1,
+          "y": 0.15
+        },
+        "unity_size": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "is_trigger": false
+      },
+      {
+        "game_object": "Joe",
+        "game_object_id": "588358391",
+        "x": -0.183,
+        "y": 0.617,
+        "width": 0.22,
+        "height": 0.31,
+        "offset": {
+          "x": 0.0,
+          "y": -0.12
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "unity_size": {
+          "x": 0.22,
+          "y": 0.31
+        },
+        "is_trigger": true
+      },
+      {
+        "game_object": "Joe",
+        "game_object_id": "588358391",
+        "x": -0.183,
+        "y": 0.617,
+        "width": 0.22,
+        "height": 0.31,
+        "offset": {
+          "x": 0.0,
+          "y": -0.12
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "unity_size": {
+          "x": 0.22,
+          "y": 0.31
+        },
+        "is_trigger": false
+      },
+      {
+        "game_object": "Left Bound",
+        "game_object_id": "846068833",
+        "x": -1.983,
+        "y": 0.82,
+        "width": 1.0,
+        "height": 2.0,
+        "offset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 2.0
+        },
+        "unity_size": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "is_trigger": false
+      },
+      {
+        "game_object": "JukeboxCollider",
+        "game_object_id": "910513492",
+        "x": 0.582,
+        "y": 0.752,
+        "width": 0.2,
+        "height": 0.3,
+        "offset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": {
+          "x": 0.2,
+          "y": 0.3
+        },
+        "unity_size": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "is_trigger": false
+      },
+      {
+        "game_object": "waitress_2",
+        "game_object_id": "1195565435",
+        "x": -0.889,
+        "y": 0.5529999999999999,
+        "width": 0.19,
+        "height": 0.28,
+        "offset": {
+          "x": 0.0,
+          "y": -0.04
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "unity_size": {
+          "x": 0.19,
+          "y": 0.28
+        },
+        "is_trigger": false
+      },
+      {
+        "game_object": "waitress_2",
+        "game_object_id": "1195565435",
+        "x": -0.889,
+        "y": 0.5529999999999999,
+        "width": 0.19,
+        "height": 0.28,
+        "offset": {
+          "x": 0.0,
+          "y": -0.04
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "unity_size": {
+          "x": 0.19,
+          "y": 0.28
+        },
+        "is_trigger": true
+      },
+      {
+        "game_object": "WallBound",
+        "game_object_id": "1197353356",
+        "x": -0.553,
+        "y": 1.12,
+        "width": 3.5,
+        "height": 1.0,
+        "offset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": {
+          "x": 3.5,
+          "y": 1.0
+        },
+        "unity_size": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "is_trigger": false
+      },
+      {
+        "game_object": "DoorCollider",
+        "game_object_id": "1356047943",
+        "x": 1.416,
+        "y": 0.833220445,
+        "width": 0.4,
+        "height": 0.40949857,
+        "offset": {
+          "x": 0.0,
+          "y": -0.10555911
+        },
+        "scale": {
+          "x": 0.4,
+          "y": 0.5
+        },
+        "unity_size": {
+          "x": 1.0,
+          "y": 0.81899714
+        },
+        "is_trigger": true
+      },
+      {
+        "game_object": "cook_2",
+        "game_object_id": "1465125658",
+        "x": -1.317,
+        "y": 0.599,
+        "width": 0.14,
+        "height": 0.19,
+        "offset": {
+          "x": 0.0,
+          "y": -0.32
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "unity_size": {
+          "x": 0.14,
+          "y": 0.19
+        },
+        "is_trigger": true
+      },
+      {
+        "game_object": "Right Bound",
+        "game_object_id": "1681050711",
+        "x": 1.993,
+        "y": 0.82,
+        "width": 1.0,
+        "height": 2.0,
+        "offset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 2.0
+        },
+        "unity_size": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "is_trigger": false
+      },
+      {
+        "game_object": "BarCollider",
+        "game_object_id": "1951578602",
+        "x": -0.831,
+        "y": 1.03,
+        "width": 1.6,
+        "height": 1.0,
+        "offset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": {
+          "x": 1.6,
+          "y": 1.0
+        },
+        "unity_size": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "is_trigger": false
+      },
+      {
+        "game_object": "Door Bound",
+        "game_object_id": "2142994086",
+        "x": 1.35882976,
+        "y": 0.8367191999999999,
+        "width": 0.257805824,
+        "height": 0.33127094,
+        "offset": {
+          "x": 0.27470744,
+          "y": 1.0883596
+        },
+        "scale": {
+          "x": 4.0,
+          "y": 2.0
+        },
+        "unity_size": {
+          "x": 0.064451456,
+          "y": 0.16563547
+        },
+        "is_trigger": false
+      }
+    ]
   },
   {
     "scene_file": "Scenes/L3_DesertDig_Pt3 1.unity",
@@ -781,6 +1316,71 @@
         "width": 0.4835217,
         "height": 0.32
       }
+    ],
+    "colliders": [
+      {
+        "game_object": "ExitCollider",
+        "game_object_id": "735949547",
+        "x": 14.718,
+        "y": -4.203,
+        "width": 0.24,
+        "height": 0.3,
+        "offset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": {
+          "x": 0.4,
+          "y": 0.5
+        },
+        "unity_size": {
+          "x": 0.6,
+          "y": 0.6
+        },
+        "is_trigger": true
+      },
+      {
+        "game_object": "Scorpions",
+        "game_object_id": "1597769014",
+        "x": -2.558,
+        "y": -4.437,
+        "width": 1.0,
+        "height": 0.36,
+        "offset": {
+          "x": 0.0,
+          "y": -0.28
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "unity_size": {
+          "x": 1.0,
+          "y": 0.36
+        },
+        "is_trigger": false
+      },
+      {
+        "game_object": "Scorpions",
+        "game_object_id": "1597769014",
+        "x": -2.308,
+        "y": -3.987,
+        "width": 0.5,
+        "height": 0.5,
+        "offset": {
+          "x": 0.25,
+          "y": 0.17
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "unity_size": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "is_trigger": false
+      }
     ]
   },
   {
@@ -805,7 +1405,72 @@
       "y": -0.71,
       "z": 0.5
     },
-    "platforms": []
+    "platforms": [],
+    "colliders": [
+      {
+        "game_object": "Right Bound",
+        "game_object_id": "143139230",
+        "x": 4.159,
+        "y": -0.498,
+        "width": 1.0,
+        "height": 1.0,
+        "offset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "unity_size": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "is_trigger": false
+      },
+      {
+        "game_object": "Ground",
+        "game_object_id": "525650502",
+        "x": -0.003,
+        "y": -1.35,
+        "width": 8.0,
+        "height": 1.0,
+        "offset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": {
+          "x": 8.0,
+          "y": 1.0
+        },
+        "unity_size": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "is_trigger": false
+      },
+      {
+        "game_object": "Left Bound",
+        "game_object_id": "1699658075",
+        "x": -2.537,
+        "y": -0.498,
+        "width": 1.0,
+        "height": 1.0,
+        "offset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "unity_size": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "is_trigger": false
+      }
+    ]
   },
   {
     "scene_file": "Scenes/SpeechTest.unity",
@@ -1158,7 +1823,8 @@
         "width": 0.8430719999999999,
         "height": 0.12664
       }
-    ]
+    ],
+    "colliders": []
   },
   {
     "scene_file": "Scenes/UFO_Finale.unity",
@@ -1213,6 +1879,50 @@
         "scale_y": 17.0256,
         "width": 6.4060816,
         "height": 2.7240960000000003
+      }
+    ],
+    "colliders": [
+      {
+        "game_object": "Crystal 1 Lit",
+        "game_object_id": "56817820",
+        "x": -2.16,
+        "y": 0.112,
+        "width": 0.075,
+        "height": 0.0925,
+        "offset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": {
+          "x": 0.25,
+          "y": 0.25
+        },
+        "unity_size": {
+          "x": 0.3,
+          "y": 0.37
+        },
+        "is_trigger": false
+      },
+      {
+        "game_object": "joshua_tree_3_dark_200",
+        "game_object_id": "2091045829",
+        "x": -3.645,
+        "y": 1.24,
+        "width": 0.32,
+        "height": 0.32,
+        "offset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "unity_size": {
+          "x": 0.32,
+          "y": 0.32
+        },
+        "is_trigger": true
       }
     ]
   }

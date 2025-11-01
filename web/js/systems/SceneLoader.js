@@ -1,11 +1,14 @@
 /**
  * SceneLoader reads JSON-driven scene definitions and spawns Phaser objects accordingly.
  */
+const EDITOR_SCENE_KEYS = ['desert_1', 'diner', 'desert_cave', 'menu'];
 class SceneLoader {
   constructor(scene) {
     this.scene = scene;
     this.sceneData = null;
     this.unityScenes = null;
+    this.platformTextureMap = null;
+    this.editorScenes = {};
   }
 
   preloadConfig() {
@@ -14,8 +17,19 @@ class SceneLoader {
       this.scene.load.json('scene-configs', 'data/scenes.json');
     }
     if (!cache || !cache.exists('unity-scenes')) {
-      this.scene.load.json('unity-scenes', 'data/unity_scene_snapshot.json');
+      // Load converted Phaser scene data (coordinates already in pixels)
+      this.scene.load.json('unity-scenes', 'data/phaser_scene_data.json');
     }
+    if (!cache || !cache.exists('unity-platform-textures')) {
+      this.scene.load.json('unity-platform-textures', 'data/unity_platform_textures.json');
+    }
+    EDITOR_SCENE_KEYS.forEach((sceneKey) => {
+      const cacheKey = `editor-scene-${sceneKey}`;
+      if (!cache || !cache.exists(cacheKey)) {
+        const path = `data/editor/${sceneKey}.scene`;
+        this.scene.load.json(cacheKey, path);
+      }
+    });
   }
 
   ensureDataLoaded() {
@@ -26,7 +40,20 @@ class SceneLoader {
     if (!this.unityScenes && cache && cache.exists('unity-scenes')) {
       const raw = cache.get('unity-scenes');
       this.unityScenes = {};
-      if (Array.isArray(raw)) {
+      // Handle new format: { scenes: { scene_key: {...}, ... } }
+      if (raw && raw.scenes && typeof raw.scenes === 'object') {
+        // New format: phaser_scene_data.json
+        Object.keys(raw.scenes).forEach((sceneKey) => {
+          const sceneData = raw.scenes[sceneKey];
+          // Store by scene_key
+          this.unityScenes[sceneKey] = sceneData;
+          // Also store by unity_scene if available
+          if (sceneData.unity_scene) {
+            this.unityScenes[sceneData.unity_scene] = sceneData;
+          }
+        });
+      } else if (Array.isArray(raw)) {
+        // Legacy format: unity_scene_snapshot.json
         raw.forEach((entry) => {
           if (entry.scene_file) {
             this.unityScenes[entry.scene_file] = entry;
@@ -36,6 +63,22 @@ class SceneLoader {
           }
         });
       }
+    }
+    if (!this.platformTextureMap && cache && cache.exists('unity-platform-textures')) {
+      const rawTextures = cache.get('unity-platform-textures');
+      if (rawTextures && typeof rawTextures === 'object') {
+        this.platformTextureMap = rawTextures;
+      } else {
+        this.platformTextureMap = {};
+      }
+    }
+    if (cache) {
+      EDITOR_SCENE_KEYS.forEach((sceneKey) => {
+        const cacheKey = `editor-scene-${sceneKey}`;
+        if (cache.exists(cacheKey) && !this.editorScenes[sceneKey]) {
+          this.editorScenes[sceneKey] = cache.get(cacheKey);
+        }
+      });
     }
     return this.sceneData;
   }
@@ -54,6 +97,7 @@ class SceneLoader {
     if (!config) return false;
 
     let queued = false;
+    this.ensureDataLoaded();
     if (config.background && config.background.file) {
       const { key, file } = config.background;
       if (key && !this.scene.textures.exists(key)) {
@@ -79,6 +123,19 @@ class SceneLoader {
         });
       }
     }
+    const unityData = (this.unityScenes && (this.unityScenes[config.unityScene] || this.unityScenes[sceneKey])) || null;
+    if (unityData && Array.isArray(unityData.platforms)) {
+      unityData.platforms.forEach((platform) => {
+        const texture = this.getUnityPlatformTexture(platform.prefab_asset);
+        if (!texture || !texture.textureKey || !texture.file) {
+          return;
+        }
+        if (!this.scene.textures.exists(texture.textureKey)) {
+          this.scene.load.image(texture.textureKey, texture.file);
+          queued = true;
+        }
+      });
+    }
     return queued;
   }
 
@@ -92,37 +149,13 @@ class SceneLoader {
       platformGroup: this.scene.physics.add.staticGroup(),
       backgroundLayers: [],
       spawnUnity: config.spawnUnity || null,
-      spawn: config.spawn || { x: 0, y: 0 }
+      spawn: config.spawn || { x: 0, y: 0 },
+      movementMode: config.movementMode || (sceneKey === 'diner' ? 'adventure' : 'platformer'),
+      unityColliders: []
     };
 
-    const backgroundConfig = config.background || null;
-    if (backgroundConfig) {
-      const mainKey = backgroundConfig.key || `bg-${sceneKey}`;
-      if (this.scene.textures.exists(mainKey)) {
-        const bg = this.scene.add.image(GAME_WIDTH / 2, GAME_HEIGHT / 2, mainKey);
-        bg.setDisplaySize(
-          backgroundConfig.displayWidth || GAME_WIDTH,
-          backgroundConfig.displayHeight || GAME_HEIGHT
-        );
-        bg.setDepth(backgroundConfig.depth || -10);
-        objects.background = bg;
-      }
-      if (Array.isArray(backgroundConfig.layers)) {
-        backgroundConfig.layers.forEach((layer) => {
-          const layerKey = layer.key || mainKey;
-          if (!this.scene.textures.exists(layerKey)) {
-            return;
-          }
-          const layerImage = this.scene.add.image(GAME_WIDTH / 2, GAME_HEIGHT / 2, layerKey);
-          layerImage.setDisplaySize(
-            layer.displayWidth || backgroundConfig.displayWidth || GAME_WIDTH,
-            layer.displayHeight || backgroundConfig.displayHeight || GAME_HEIGHT
-          );
-          layerImage.setDepth(layer.depth || (backgroundConfig.depth || -15));
-          objects.backgroundLayers.push(layerImage);
-        });
-      }
-    }
+    const editorScene = this.editorScenes[sceneKey] || null;
+    this.buildBackground(objects, config, editorScene, sceneKey);
 
     if (Array.isArray(config.platforms)) {
       config.platforms.forEach((platform) => {
@@ -140,27 +173,17 @@ class SceneLoader {
     const mapping = this.calculateUnityMapping(sceneKey, config);
     objects.unityMapping = mapping;
     const unityData = (this.unityScenes && (this.unityScenes[config.unityScene] || this.unityScenes[sceneKey])) || null;
-    if (config.spawnUnity && mapping) {
-      objects.spawn = this.convertUnityPoint(
-        config.spawnUnity,
-        mapping
-      );
+
+    // Use pre-converted spawn point from Phaser data if available
+    if (unityData && unityData.player_spawn) {
+      objects.spawn = unityData.player_spawn;
+    } else if (config.spawnUnity && mapping) {
+      // Fallback to runtime conversion (legacy)
+      objects.spawn = this.convertUnityPoint(config.spawnUnity, mapping);
     }
-    if (mapping && unityData && Array.isArray(unityData.platforms)) {
-      objects.unityPlatforms = unityData.platforms
-        .filter((platform) => typeof platform.width === 'number' && typeof platform.height === 'number')
-        .map((platform) => {
-          const position = this.convertUnityPoint(platform, mapping);
-          const size = this.convertUnitySize(platform.width, platform.height, mapping);
-          return {
-            unity: platform,
-            phaser: position,
-            size
-          };
-        });
-    } else {
-      objects.unityPlatforms = [];
-    }
+
+    objects.unityPlatforms = this.buildUnityPlatformsFromSources(sceneKey, mapping, unityData, editorScene);
+    objects.unityColliders = this.buildUnityCollidersFromSources(sceneKey, mapping, unityData);
     return objects;
   }
 
@@ -201,6 +224,13 @@ class SceneLoader {
     if (Array.isArray(unityData.platforms)) {
       unityData.platforms.forEach(p => {
         points.push({ x: p.x, y: p.y });
+      });
+    }
+    if (Array.isArray(unityData.colliders)) {
+      unityData.colliders.forEach((c) => {
+        if (typeof c.x === 'number' && typeof c.y === 'number') {
+          points.push({ x: c.x, y: c.y });
+        }
       });
     }
     if (unityData.player_spawn) {
@@ -268,5 +298,172 @@ class SceneLoader {
       width: widthUnits * mapping.scaleX,
       height: heightUnits * mapping.scaleY
     };
+  }
+
+  buildBackground(objects, config, editorScene, sceneKey) {
+    if (editorScene && Array.isArray(editorScene.displayList)) {
+      const backgroundNodes = editorScene.displayList.filter((node) => node.type === 'Image' && node.data && node.data.type === 'background');
+      backgroundNodes
+        .sort((a, b) => (a.data?.depth || 0) - (b.data?.depth || 0))
+        .forEach((node, index) => {
+          if (!this.scene.textures.exists(node.texture)) {
+            return;
+          }
+          const image = this.scene.add.image(
+            node.x ?? GAME_WIDTH / 2,
+            node.y ?? GAME_HEIGHT / 2,
+            node.texture,
+            node.frame || null
+          );
+          image.setOrigin(node.originX ?? 0.5, node.originY ?? 0.5);
+          image.setScale(node.scaleX ?? 1, node.scaleY ?? 1);
+          image.setDepth(node.data?.depth ?? (index === 0 ? -10 : -15));
+          if (!objects.background) {
+            objects.background = image;
+          } else {
+            objects.backgroundLayers.push(image);
+          }
+        });
+      if (objects.background) {
+        return;
+      }
+    }
+
+    const backgroundConfig = config.background || null;
+    if (!backgroundConfig) {
+      return;
+    }
+    const mainKey = backgroundConfig.key || `bg-${sceneKey}`;
+    if (this.scene.textures.exists(mainKey)) {
+      const bg = this.scene.add.image(GAME_WIDTH / 2, GAME_HEIGHT / 2, mainKey);
+      bg.setDisplaySize(
+        backgroundConfig.displayWidth || GAME_WIDTH,
+        backgroundConfig.displayHeight || GAME_HEIGHT
+      );
+      bg.setDepth(backgroundConfig.depth || -10);
+      objects.background = bg;
+    }
+    if (Array.isArray(backgroundConfig.layers)) {
+      backgroundConfig.layers.forEach((layer) => {
+        const layerKey = layer.key || mainKey;
+        if (!this.scene.textures.exists(layerKey)) {
+          return;
+        }
+        const layerImage = this.scene.add.image(GAME_WIDTH / 2, GAME_HEIGHT / 2, layerKey);
+        layerImage.setDisplaySize(
+          layer.displayWidth || backgroundConfig.displayWidth || GAME_WIDTH,
+          layer.displayHeight || backgroundConfig.displayHeight || GAME_HEIGHT
+        );
+        layerImage.setDepth(layer.depth || (backgroundConfig.depth || -15));
+        objects.backgroundLayers.push(layerImage);
+      });
+    }
+  }
+
+  buildUnityPlatformsFromSources(sceneKey, mapping, unityData, editorScene) {
+    const results = [];
+    if (editorScene && Array.isArray(editorScene.displayList)) {
+      editorScene.displayList.forEach((node) => {
+        if (node.type !== 'Sprite' || !node.data || node.data.type !== 'platform') {
+          return;
+        }
+        const prefab = node.data.prefab;
+        const texture = this.getUnityPlatformTexture(prefab);
+        const unityPoint = { x: node.x ?? 0, y: -(node.y ?? 0) };
+        const unityWidth = node.data.width || 0;
+        const unityHeight = node.data.height || 0;
+        const scaleX = Number(node.scaleX) || 1.0;
+        const scaleY = Number(node.scaleY) || 1.0;
+        const scaledWidth = unityWidth * Math.abs(scaleX);
+        const scaledHeight = unityHeight * Math.abs(scaleY);
+        const position = mapping ? this.convertUnityPoint(unityPoint, mapping) : { x: node.x, y: node.y };
+        const size = mapping
+          ? this.convertUnitySize(scaledWidth, scaledHeight, mapping)
+          : { width: scaledWidth, height: scaledHeight };
+        results.push({
+          editor: node,
+          unity: {
+            prefab_asset: prefab,
+            x: unityPoint.x,
+            y: unityPoint.y,
+            width: unityWidth,
+            height: unityHeight
+          },
+          phaser: position,
+          size,
+          texture,
+          flipX: !!node.flipX || scaleX < 0,
+          flipY: !!node.flipY || scaleY < 0,
+          physics: {
+            type: node.data.oneWay ? 'oneway' : 'solid',
+            asset: prefab || null
+          }
+        });
+      });
+      if (results.length) {
+        return results;
+      }
+    }
+
+    if (unityData && Array.isArray(unityData.platforms)) {
+      return unityData.platforms
+        .filter((platform) => typeof platform.width === 'number' && typeof platform.height === 'number')
+        .map((platform) => {
+          // Coordinates are already converted to Phaser pixels by convert_unity_to_phaser.py
+          const position = { x: platform.x, y: platform.y };
+          const size = { width: platform.width, height: platform.height };
+          const unityScaleX = Number(platform.scale_x) || 1.0;
+          const unityScaleY = Number(platform.scale_y) || 1.0;
+          const texture = this.getUnityPlatformTexture(platform.prefab_asset);
+          const bodyOptions = this.mapPlatformPhysics(platform);
+          return {
+            unity: platform,
+            phaser: position,
+            size,
+            texture,
+            flipX: unityScaleX < 0,
+            flipY: unityScaleY < 0,
+            physics: bodyOptions
+          };
+        });
+    }
+
+    return [];
+  }
+
+  buildUnityCollidersFromSources(sceneKey, mapping, unityData) {
+    if (!unityData || !Array.isArray(unityData.colliders)) {
+      return [];
+    }
+    return unityData.colliders.map((collider) => {
+      // Coordinates are already converted to Phaser pixels by convert_unity_to_phaser.py
+      const position = { x: collider.x || 0, y: collider.y || 0 };
+      const size = { width: collider.width || 0, height: collider.height || 0 };
+      return {
+        unity: collider,
+        phaser: position,
+        size,
+        isTrigger: !!collider.is_trigger,
+        gameObject: collider.game_object || null
+      };
+    });
+  }
+
+  getUnityPlatformTexture(prefabAsset) {
+    if (!prefabAsset || !this.platformTextureMap) {
+      return null;
+    }
+    return this.platformTextureMap[prefabAsset] || null;
+  }
+
+  mapPlatformPhysics(platform) {
+    if (!platform) {
+      return { type: 'solid' };
+    }
+    const asset = String(platform.prefab_asset || '').toLowerCase();
+    if (asset.includes('floating_')) {
+      return { type: 'oneway', allowDownJump: true, asset: platform.prefab_asset || null };
+    }
+    return { type: 'solid', asset: platform.prefab_asset || null };
   }
 }

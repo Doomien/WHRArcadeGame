@@ -1,0 +1,913 @@
+{
+  "generated_by": "tools/convert_unity_to_phaser.py",
+  "source_files": {
+    "scenes": "web/data/scenes.json",
+    "unity_snapshot": "web/data/unity_scene_snapshot.json"
+  },
+  "scenes": {
+    "desert_1": {
+      "scene_key": "desert_1",
+      "scene_name": "Level 1 - Desert",
+      "unity_scene": "Scenes/L1_Desert_Pt1.unity",
+      "display_width": 1280,
+      "display_height": 720,
+      "mapping": {
+        "scaleX": 24.026008153826517,
+        "scaleY": 70.67137809187278,
+        "offsetX": -90.27892693841079,
+        "offsetY": 199.7879858657244
+      },
+      "platforms": [
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+          "x": 387.16590709442977,
+          "y": 80.00000000000004,
+          "width": 11.532483913836728,
+          "height": 11.307420494699645,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/mesa_15_A.prefab",
+          "x": 584.5876160944222,
+          "y": 150.74204946996468,
+          "width": 19.411493021195444,
+          "height": 67.92781201413428,
+          "scale_x": -1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x8.prefab",
+          "x": 798.6893332031925,
+          "y": 187.27790388692583,
+          "width": 30.75329043689794,
+          "height": 11.307420494699645,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/mesa_07.prefab",
+          "x": 300.0192508390333,
+          "y": 178.7279151943463,
+          "width": 19.271340426011157,
+          "height": 22.61484098939929,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Mesa_09_A.prefab",
+          "x": 271.7930159397548,
+          "y": 184.31095406360427,
+          "width": 30.75329043689794,
+          "height": 11.307420494699645,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Mesa_11_A.prefab",
+          "x": 450.5967309612656,
+          "y": 178.63972932862194,
+          "width": 11.553060267739829,
+          "height": 22.717061484098938,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/mesa_07.prefab",
+          "x": 905.1426168827755,
+          "y": 301.8303886925795,
+          "width": 19.271340426011157,
+          "height": 35.290473837455835,
+          "scale_x": 1.0,
+          "scale_y": 1.2492,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+          "x": 726.2094016773157,
+          "y": 230.02518869257952,
+          "width": 11.532483913836728,
+          "height": 11.307420494699645,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x5.prefab",
+          "x": 406.5548956745677,
+          "y": 121.83745583038873,
+          "width": 19.220806523061214,
+          "height": 11.307420494699645,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+          "x": 1120.0,
+          "y": 523.3851590106008,
+          "width": 18724.555705075607,
+          "height": 39355.38956342964,
+          "scale_x": 69.79189,
+          "scale_y": 58.995697,
+          "z": 0.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Mesa_09.prefab",
+          "x": 676.847487405116,
+          "y": 342.9681978798586,
+          "width": 30.75329043689794,
+          "height": 11.307420494699645,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+          "x": 980.6083084939447,
+          "y": 213.92226148409895,
+          "width": 8.847731000007508,
+          "height": 11.307420494699645,
+          "scale_x": 0.8759,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/mesa_15_B.prefab",
+          "x": 619.3532498930092,
+          "y": 307.2791519434629,
+          "width": 11.62379547860559,
+          "height": 68.1639477031802,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/mesa_06_light_a.prefab",
+          "x": 326.45739813347956,
+          "y": 161.97103180212017,
+          "width": 11.695882392690086,
+          "height": 56.752204946996464,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Mesa_10_A.prefab",
+          "x": 550.134320401835,
+          "y": 269.2579505300354,
+          "width": 11.581435223629578,
+          "height": 45.22968197879858,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x5.prefab",
+          "x": 741.5831637747862,
+          "y": 205.65370954063607,
+          "width": 19.220806523061214,
+          "height": 11.307420494699645,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+          "x": 959.6672397870697,
+          "y": 235.97173144876328,
+          "width": 23.91188875721451,
+          "height": 11.307420494699645,
+          "scale_x": 1.4399437,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+          "x": 564.2837892018109,
+          "y": 105.62284805653715,
+          "width": 11.532483913836728,
+          "height": 11.307420494699645,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x8.prefab",
+          "x": 357.7041106998326,
+          "y": 104.41633215547706,
+          "width": 30.75329043689794,
+          "height": 11.307420494699645,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+          "x": 920.6465999444399,
+          "y": 331.18021201413427,
+          "width": 975.6560201008541,
+          "height": 95.04266523701472,
+          "scale_x": 15.931166,
+          "scale_y": 2.8991957,
+          "z": 0.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+          "x": 690.9392217074984,
+          "y": 179.22532155477035,
+          "width": 11.532483913836728,
+          "height": 11.307420494699645,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/mesa_07.prefab",
+          "x": 300.07162753680865,
+          "y": 178.5159010600707,
+          "width": 19.271340426011157,
+          "height": 22.61484098939929,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+          "x": 571.0340643746856,
+          "y": 317.35766077738515,
+          "width": 996.5995376843586,
+          "height": 306.3864742871406,
+          "scale_x": 16.101248,
+          "scale_y": 5.205387,
+          "z": 0.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+          "x": 980.1037623227145,
+          "y": 260.77738515901063,
+          "width": 11.532483913836728,
+          "height": 11.307420494699645,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+          "x": 772.8669484717207,
+          "y": 219.5759717314488,
+          "width": 11.532483913836728,
+          "height": 11.307420494699645,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Mesa_09_A.prefab",
+          "x": 769.8761909767323,
+          "y": 341.62544169611306,
+          "width": 30.75329043689794,
+          "height": 11.307420494699645,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/mesa_07.prefab",
+          "x": 524.8655189242355,
+          "y": 177.9118939929329,
+          "width": 19.271340426011157,
+          "height": 22.61484098939929,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+          "x": 852.6110955108907,
+          "y": 167.91519434628978,
+          "width": 11.532483913836728,
+          "height": 11.307420494699645,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+          "x": 828.4515988557613,
+          "y": 155.83038869257953,
+          "width": 11.532483913836728,
+          "height": 11.307420494699645,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+          "x": 577.5359827012742,
+          "y": 200.74911660777389,
+          "width": 632.3500058688629,
+          "height": 43.51294267316737,
+          "scale_x": 12.825608,
+          "scale_y": 1.9616768,
+          "z": 0.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Mesa_004.prefab",
+          "x": 240.43907529901122,
+          "y": 178.30723250883395,
+          "width": 11.597408434630488,
+          "height": 22.61484098939929,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": 0.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Mesa_004.prefab",
+          "x": 428.23010308659127,
+          "y": 178.44976113074208,
+          "width": 11.597408434630488,
+          "height": 22.61484098939929,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+          "x": 914.7842539549061,
+          "y": 215.97879858657245,
+          "width": 1385.164565751095,
+          "height": 237.93053647735405,
+          "scale_x": 18.982346,
+          "scale_y": 4.587154,
+          "z": 0.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/mesa_06.prefab",
+          "x": 968.0828296631104,
+          "y": 317.3780918727915,
+          "width": 11.590762119994894,
+          "height": 39.96103140593724,
+          "scale_x": 1.0,
+          "scale_y": 1.0823,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+          "x": 492.46716770904504,
+          "y": 105.37102473498237,
+          "width": 11.532483913836728,
+          "height": 11.307420494699645,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+          "x": 957.2069765521177,
+          "y": 197.17585045936397,
+          "width": 11.532483913836728,
+          "height": 11.307420494699645,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+          "x": 708.333162648567,
+          "y": 205.50966219081275,
+          "width": 11.532483913836728,
+          "height": 11.307420494699645,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+          "x": 540.1154750016893,
+          "y": 93.8515901060071,
+          "width": 11.532483913836728,
+          "height": 11.307420494699645,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/mesa_06.prefab",
+          "x": 472.7177649805915,
+          "y": 161.53065017667848,
+          "width": 11.590762119994894,
+          "height": 34.11468551236749,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+          "x": 762.7044275428151,
+          "y": 600.0,
+          "width": 52162.445113764676,
+          "height": 23063.427958462515,
+          "scale_x": 116.48719,
+          "scale_y": 45.162727,
+          "z": 0.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Mesa_11.prefab",
+          "x": 941.2575993512979,
+          "y": 178.7279151943463,
+          "width": 11.597405551509508,
+          "height": 22.61484098939929,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Mesa_04_D.prefab",
+          "x": 373.82452905269963,
+          "y": 172.67753356890464,
+          "width": 11.594653132015408,
+          "height": 33.92226148409893,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Mesa_05_B.prefab",
+          "x": 433.94454496993,
+          "y": 167.13780918727917,
+          "width": 11.56584282485791,
+          "height": 44.965936395759705,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+          "x": 865.0806177687347,
+          "y": 134.63168409893996,
+          "width": 11.532483913836728,
+          "height": 11.307420494699645,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/mesa_15_A.prefab",
+          "x": 872.683479866956,
+          "y": 326.7844522968198,
+          "width": 19.411493021195444,
+          "height": 67.92781201413428,
+          "scale_x": -1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Mesa_01.prefab",
+          "x": 1112.484664649483,
+          "y": 155.44169611307424,
+          "width": 0.7916358257814085,
+          "height": 432.0532122685512,
+          "scale_x": 0.262,
+          "scale_y": 6.1814,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+          "x": 516.2816749130934,
+          "y": 93.92226148409898,
+          "width": 11.532483913836728,
+          "height": 11.307420494699645,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/mesa_08_A.prefab",
+          "x": 935.9509268783457,
+          "y": 301.63250883392226,
+          "width": 30.75329043689794,
+          "height": 36.26629368490989,
+          "scale_x": 1.0,
+          "scale_y": 1.2663531,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+          "x": 618.2156184069255,
+          "y": 147.54750954063607,
+          "width": 11.532483913836728,
+          "height": 11.307420494699645,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x8.prefab",
+          "x": 664.8585093363566,
+          "y": 166.71378091872793,
+          "width": 30.75329043689794,
+          "height": 11.307420494699645,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Mesa_01.prefab",
+          "x": 218.2150177567217,
+          "y": 183.9575971731449,
+          "width": 11.532483913836728,
+          "height": 11.307420494699645,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/mesa_15_B.prefab",
+          "x": 896.1809158413984,
+          "y": 150.60070671378097,
+          "width": 11.62379547860559,
+          "height": 68.1639477031802,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -1.0
+        }
+      ],
+      "colliders": [
+        {
+          "x": 1068.4954463206423,
+          "y": 175.5449526501767,
+          "width": 9.610403261530607,
+          "height": 33.079710247349816,
+          "is_trigger": true,
+          "game_object": "DoorCollider"
+        }
+      ],
+      "player_spawn": {
+        "x": 160.00000000000003,
+        "y": 179.36395759717317
+      },
+      "unity_source": {
+        "scene_file": "Scenes/L1_Desert_Pt1.unity",
+        "scene_name": "L1_Desert_Pt1"
+      }
+    },
+    "diner": {
+      "scene_key": "diner",
+      "scene_name": "Level 2 - Diner",
+      "unity_scene": "Scenes/L2_Diner_Pt2.unity",
+      "display_width": 1280,
+      "display_height": 720,
+      "mapping": {
+        "scaleX": 241.44869215291752,
+        "scaleY": 249.40047961630697,
+        "offsetX": 638.7927565392354,
+        "offsetY": 359.32853717026376
+      },
+      "colliders": [
+        {
+          "x": 641.9315895372233,
+          "y": 600.0,
+          "width": 965.7947686116701,
+          "height": 498.80095923261393,
+          "is_trigger": false,
+          "game_object": "Lower Bound"
+        },
+        {
+          "x": 870.5835010060362,
+          "y": 328.9016786570743,
+          "width": 265.5935613682093,
+          "height": 37.410071942446045,
+          "is_trigger": false,
+          "game_object": "BoothsCollider"
+        },
+        {
+          "x": 594.6076458752515,
+          "y": 205.44844124700236,
+          "width": 53.118712273641854,
+          "height": 77.31414868105516,
+          "is_trigger": true,
+          "game_object": "Joe"
+        },
+        {
+          "x": 594.6076458752515,
+          "y": 205.44844124700236,
+          "width": 53.118712273641854,
+          "height": 77.31414868105516,
+          "is_trigger": false,
+          "game_object": "Joe"
+        },
+        {
+          "x": 159.9999999999999,
+          "y": 154.82014388489205,
+          "width": 241.44869215291752,
+          "height": 498.80095923261393,
+          "is_trigger": false,
+          "game_object": "Left Bound"
+        },
+        {
+          "x": 779.3158953722334,
+          "y": 171.77937649880093,
+          "width": 48.289738430583505,
+          "height": 74.82014388489209,
+          "is_trigger": false,
+          "game_object": "JukeboxCollider"
+        },
+        {
+          "x": 424.1448692152917,
+          "y": 221.41007194244602,
+          "width": 45.87525150905433,
+          "height": 69.83213429256595,
+          "is_trigger": false,
+          "game_object": "waitress_2"
+        },
+        {
+          "x": 424.1448692152917,
+          "y": 221.41007194244602,
+          "width": 45.87525150905433,
+          "height": 69.83213429256595,
+          "is_trigger": true,
+          "game_object": "waitress_2"
+        },
+        {
+          "x": 505.271629778672,
+          "y": 79.99999999999994,
+          "width": 845.0704225352113,
+          "height": 249.40047961630697,
+          "is_trigger": false,
+          "game_object": "WallBound"
+        },
+        {
+          "x": 980.6841046277666,
+          "y": 151.52295856115103,
+          "width": 96.57947686116701,
+          "height": 102.12913976019185,
+          "is_trigger": true,
+          "game_object": "DoorCollider"
+        },
+        {
+          "x": 320.80482897384303,
+          "y": 209.9376498800959,
+          "width": 33.802816901408455,
+          "height": 47.386091127098325,
+          "is_trigger": true,
+          "game_object": "cook_2"
+        },
+        {
+          "x": 1120.0,
+          "y": 154.82014388489205,
+          "width": 241.44869215291752,
+          "height": 498.80095923261393,
+          "is_trigger": false,
+          "game_object": "Right Bound"
+        },
+        {
+          "x": 438.1488933601609,
+          "y": 102.44604316546759,
+          "width": 386.31790744466804,
+          "height": 249.40047961630697,
+          "is_trigger": false,
+          "game_object": "BarCollider"
+        },
+        {
+          "x": 966.8804249496982,
+          "y": 150.65036738609112,
+          "width": 62.246879034205236,
+          "height": 82.61913131894485,
+          "is_trigger": false,
+          "game_object": "Door Bound"
+        }
+      ],
+      "player_spawn": {
+        "x": 860.6841046277666,
+        "y": 222.40767386091122
+      },
+      "unity_source": {
+        "scene_file": "Scenes/L2_Diner_Pt2.unity",
+        "scene_name": "L2_Diner_Pt2"
+      }
+    },
+    "desert_cave": {
+      "scene_key": "desert_cave",
+      "scene_name": "Level 3 - Desert Dig",
+      "unity_scene": "Scenes/L3_DesertDig_Pt3 1.unity",
+      "display_width": 1280,
+      "display_height": 720,
+      "mapping": {
+        "scaleX": 51.15089514066496,
+        "scaleY": 42.77891854893908,
+        "offsetX": 367.16112531969316,
+        "offsetY": 280.1899383983573
+      },
+      "platforms": [
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+          "x": 469.4363785166241,
+          "y": 234.03475787132103,
+          "width": 24.552429667519178,
+          "height": 6.844626967830253,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": 0.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+          "x": 735.7442455242967,
+          "y": 345.6934462696783,
+          "width": 36201.77608464368,
+          "height": 2189.575473791211,
+          "scale_x": 66.50868,
+          "scale_y": 17.885664,
+          "z": 0.1
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/mesa_06_light_a.prefab",
+          "x": 426.13810230179035,
+          "y": 267.4418215263518,
+          "width": 24.900301790281326,
+          "height": 34.35334103353867,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": 0.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/mesa_06_light_a.prefab",
+          "x": 160.00000000000009,
+          "y": 269.70910335386725,
+          "width": 24.900301790281326,
+          "height": 34.35334103353867,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": 0.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Smart Platform.prefab",
+          "x": 268.95140664961644,
+          "y": 346.2020876112252,
+          "width": 19775.245078772376,
+          "height": 2225.1806583778302,
+          "scale_x": 49.15575,
+          "scale_y": 18.030499,
+          "z": 0.1
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+          "x": 559.613432225064,
+          "y": 233.73039014373717,
+          "width": 24.552429667519178,
+          "height": 6.844626967830253,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": 0.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+          "x": 520.7957647058824,
+          "y": 253.7525654517454,
+          "width": 24.552429667519178,
+          "height": 6.844626967830253,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": 0.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Mesa_010.prefab",
+          "x": 651.8668030690537,
+          "y": 264.8747446098563,
+          "width": 24.54961943734015,
+          "height": 27.378507871321013,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -0.6
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+          "x": 507.795601023018,
+          "y": 220.0,
+          "width": 24.552429667519178,
+          "height": 6.844626967830253,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": 0.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Mesa_11.prefab",
+          "x": 356.0937713554988,
+          "y": 277.4944652635181,
+          "width": 24.690646547314575,
+          "height": 13.689253935660506,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": -0.6
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Floating_1x3.prefab",
+          "x": 610.6678772378517,
+          "y": 227.09966204654347,
+          "width": 24.552429667519178,
+          "height": 6.844626967830253,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": 0.0
+        },
+        {
+          "prefab_asset": "prefabs/Platforms/Mesa_12.prefab",
+          "x": 489.49829667519185,
+          "y": 277.6397464493498,
+          "width": 24.732567774936058,
+          "height": 13.689253935660506,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "z": 0.0
+        }
+      ],
+      "colliders": [
+        {
+          "x": 1120.0,
+          "y": 459.98973305954826,
+          "width": 12.276214833759589,
+          "height": 12.833675564681725,
+          "is_trigger": true,
+          "game_object": "ExitCollider"
+        },
+        {
+          "x": 236.3171355498722,
+          "y": 470.0,
+          "width": 51.15089514066496,
+          "height": 15.40041067761807,
+          "is_trigger": false,
+          "game_object": "Scorpions"
+        },
+        {
+          "x": 249.10485933503844,
+          "y": 450.74948665297745,
+          "width": 25.57544757033248,
+          "height": 21.38945927446954,
+          "is_trigger": false,
+          "game_object": "Scorpions"
+        }
+      ],
+      "player_spawn": {
+        "x": 243.9386189258313,
+        "y": 277.8798767967146
+      },
+      "unity_source": {
+        "scene_file": "Scenes/L3_DesertDig_Pt3 1.unity",
+        "scene_name": "L3_DesertDig_Pt3 1"
+      }
+    },
+    "menu": {
+      "scene_key": "menu",
+      "scene_name": "Main Menu",
+      "unity_scene": "Scenes/Menu.unity",
+      "display_width": 1280,
+      "display_height": 720,
+      "mapping": {
+        "scaleX": 143.36917562724014,
+        "scaleY": 610.3286384976525,
+        "offsetX": 523.7275985663083,
+        "offsetY": -223.94366197183092
+      },
+      "colliders": [
+        {
+          "x": 1120.0,
+          "y": 80.0,
+          "width": 143.36917562724014,
+          "height": 610.3286384976525,
+          "is_trigger": false,
+          "game_object": "Right Bound"
+        },
+        {
+          "x": 523.2974910394266,
+          "y": 600.0,
+          "width": 1146.953405017921,
+          "height": 610.3286384976525,
+          "is_trigger": false,
+          "game_object": "Ground"
+        },
+        {
+          "x": 160.00000000000006,
+          "y": 80.0,
+          "width": 143.36917562724014,
+          "height": 610.3286384976525,
+          "is_trigger": false,
+          "game_object": "Left Bound"
+        }
+      ],
+      "player_spawn": {
+        "x": 461.6487455197133,
+        "y": 209.38967136150234
+      },
+      "unity_source": {
+        "scene_file": "Scenes/Menu.unity",
+        "scene_name": "Menu"
+      }
+    }
+  }
+}

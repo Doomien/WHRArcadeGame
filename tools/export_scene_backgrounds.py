@@ -16,7 +16,7 @@ from __future__ import annotations
 import json
 import re
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional, Tuple
+from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 ROOT = Path(__file__).resolve().parents[1]
 UNITY_ASSETS = ROOT / "Unity" / "Assets"
@@ -112,13 +112,23 @@ def collect_platform_guids() -> Dict[str, str]:
 
 def parse_scene(
     scene_path: Path,
-    platform_guid_map: Dict[str, str]
-) -> Tuple[Dict[str, Dict[str, Optional[str]]], Optional[Dict[str, float]], List[Dict[str, float]]]:
-    """Return (backgrounds, player_spawn, platforms) metadata extracted from a Unity scene."""
+    platform_guid_map: Dict[str, str],
+    export_colliders: bool = False
+) -> Tuple[
+    Dict[str, Dict[str, Optional[str]]],
+    Optional[Dict[str, float]],
+    List[Dict[str, float]],
+    List[Dict[str, Any]]
+]:
+    """Return (backgrounds, player_spawn, platforms, colliders) metadata extracted from a Unity scene."""
+
     game_object_names: Dict[str, str] = {}
     backgrounds: Dict[str, Dict[str, Optional[str]]] = {}
     player_spawn: Optional[Dict[str, float]] = None
     platform_instances: List[Dict[str, float]] = []
+
+    transforms_by_game_object: Dict[str, Dict[str, Tuple[float, float, float]]] = {}
+    collider_entries: List[Dict[str, Any]] = []
 
     current_block = None
     current_id = None
@@ -127,12 +137,55 @@ def parse_scene(
     current_prefab_transform: Dict[str, float] = {}
     current_prefab_guid: Optional[str] = None
 
+    current_transform = {
+        "game_object": None,
+        "position": [0.0, 0.0, 0.0],
+        "scale": [1.0, 1.0, 1.0],
+        "rotation": [0.0, 0.0, 0.0, 1.0]
+    }
+    current_collider = {
+        "game_object": None,
+        "size": [1.0, 1.0],
+        "offset": [0.0, 0.0],
+        "is_trigger": False
+    }
+
+    def commit_transform():
+        if not export_colliders:
+            return
+        go_id = current_transform.get("game_object")
+        if not go_id:
+            return
+        transforms_by_game_object[go_id] = {
+            "position": tuple(current_transform["position"]),
+            "scale": tuple(current_transform["scale"]),
+            "rotation": tuple(current_transform["rotation"])
+        }
+
+    def commit_collider():
+        if not export_colliders:
+            return
+        go_id = current_collider.get("game_object")
+        if not go_id:
+            return
+        collider_entries.append({
+            "game_object": go_id,
+            "size": tuple(current_collider["size"]),
+            "offset": tuple(current_collider["offset"]),
+            "is_trigger": current_collider["is_trigger"]
+        })
+
     with scene_path.open(encoding="utf-8") as handle:
         for raw_line in handle:
             line = raw_line.rstrip("\n")
 
             block_match = re.match(r"^---\s*!u!(\d+)\s+&(\d+)", line)
             if block_match:
+                if export_colliders:
+                    if current_block == "4":
+                        commit_transform()
+                    if current_block == "61":
+                        commit_collider()
                 if current_block == "1001":
                     if (
                         current_prefab_guid == PLAYER_PREFAB_GUID
@@ -181,6 +234,18 @@ def parse_scene(
                 }
                 pending_property = None
                 current_prefab_guid = None
+                current_transform = {
+                    "game_object": None,
+                    "position": [0.0, 0.0, 0.0],
+                    "scale": [1.0, 1.0, 1.0],
+                    "rotation": [0.0, 0.0, 0.0, 1.0]
+                }
+                current_collider = {
+                    "game_object": None,
+                    "size": [1.0, 1.0],
+                    "offset": [0.0, 0.0],
+                    "is_trigger": False
+                }
 
                 block_type = block_match.group(1)
                 current_id = block_match.group(2)
@@ -228,7 +293,40 @@ def parse_scene(
                         axis = pending_property.split(".")[-1]
                         current_prefab_transform[f"scale_{axis}"] = float(value_match.group(1))
 
-    # Filter to background-like GameObjects.
+            if export_colliders and current_block == "4":  # Transform block
+                go_match = re.search(r"m_GameObject: \{fileID: (\d+)\}", line)
+                if go_match:
+                    current_transform["game_object"] = go_match.group(1)
+                pos_match = re.search(r"m_LocalPosition: \{x: ([^,]+), y: ([^,]+), z: ([^}]+)\}", line)
+                if pos_match:
+                    current_transform["position"] = [float(pos_match.group(1)), float(pos_match.group(2)), float(pos_match.group(3))]
+                scale_match = re.search(r"m_LocalScale: \{x: ([^,]+), y: ([^,]+), z: ([^}]+)\}", line)
+                if scale_match:
+                    current_transform["scale"] = [float(scale_match.group(1)), float(scale_match.group(2)), float(scale_match.group(3))]
+                rot_match = re.search(r"m_LocalRotation: \{x: ([^,]+), y: ([^,]+), z: ([^,]+), w: ([^}]+)\}", line)
+                if rot_match:
+                    current_transform["rotation"] = [float(rot_match.group(1)), float(rot_match.group(2)), float(rot_match.group(3)), float(rot_match.group(4))]
+
+            if export_colliders and current_block == "61":  # BoxCollider2D block
+                go_match = re.search(r"m_GameObject: \{fileID: (\d+)\}", line)
+                if go_match:
+                    current_collider["game_object"] = go_match.group(1)
+                size_match = re.search(r"m_Size: \{x: ([^,]+), y: ([^}]+)\}", line)
+                if size_match:
+                    current_collider["size"] = [float(size_match.group(1)), float(size_match.group(2))]
+                offset_match = re.search(r"m_Offset: \{x: ([^,]+), y: ([^}]+)\}", line)
+                if offset_match:
+                    current_collider["offset"] = [float(offset_match.group(1)), float(offset_match.group(2))]
+                trigger_match = re.search(r"m_IsTrigger: (\d)", line)
+                if trigger_match:
+                    current_collider["is_trigger"] = trigger_match.group(1) == "1"
+
+    if export_colliders:
+        if current_block == "4":
+            commit_transform()
+        if current_block == "61":
+            commit_collider()
+
     filtered: Dict[str, Dict[str, Optional[str]]] = {}
     for sprite in backgrounds.values():
         go_id = sprite["game_object"]
@@ -242,7 +340,35 @@ def parse_scene(
             "sprite_guid": sprite["guid"],
             "sorting_order": sprite["sorting_order"],
         }
-    return filtered, player_spawn, platform_instances
+
+    collider_instances: List[Dict[str, Any]] = []
+    if export_colliders:
+        for entry in collider_entries:
+            go_id = entry["game_object"]
+            transform = transforms_by_game_object.get(go_id)
+            if not transform:
+                continue
+            scale_x, scale_y = transform["scale"][0], transform["scale"][1]
+            width = entry["size"][0] * abs(scale_x)
+            height = entry["size"][1] * abs(scale_y)
+            world_x = transform["position"][0] + entry["offset"][0] * scale_x
+            world_y = transform["position"][1] + entry["offset"][1] * scale_y
+            collider_instances.append(
+                {
+                    "game_object": game_object_names.get(go_id, ""),
+                    "game_object_id": go_id,
+                    "x": world_x,
+                    "y": world_y,
+                    "width": width,
+                    "height": height,
+                    "offset": {"x": entry["offset"][0], "y": entry["offset"][1]},
+                    "scale": {"x": scale_x, "y": scale_y},
+                    "unity_size": {"x": entry["size"][0], "y": entry["size"][1]},
+                    "is_trigger": entry["is_trigger"]
+                }
+            )
+
+    return filtered, player_spawn, platform_instances, collider_instances
 
 
 def main() -> None:
@@ -254,13 +380,18 @@ def main() -> None:
     results = []
 
     for scene in scene_files:
-        backgrounds, spawn, platforms = parse_scene(scene, platform_guids)
+        backgrounds, spawn, platforms, colliders = parse_scene(
+            scene,
+            platform_guids,
+            export_colliders=True
+        )
         entry = {
             "scene_file": str(scene.relative_to(UNITY_ASSETS)),
             "scene_name": scene.stem,
             "backgrounds": [],
             "player_spawn": spawn,
             "platforms": platforms,
+            "colliders": colliders,
         }
         for data in backgrounds.values():
             guid = data.get("sprite_guid")
@@ -273,7 +404,7 @@ def main() -> None:
                     "sorting_order": int(data["sorting_order"]) if data["sorting_order"] else None,
                 }
             )
-        if entry["backgrounds"] or entry["player_spawn"] or entry["platforms"]:
+        if entry["backgrounds"] or entry["player_spawn"] or entry["platforms"] or entry["colliders"]:
             results.append(entry)
 
     print(json.dumps(results, indent=2))

@@ -1,0 +1,86 @@
+{
+  "prefabs/Platforms/Floating_1x3.prefab": {
+    "textureKey": "unity-platform-floating-1x3",
+    "file": "assets/sprites/platforms/Floating_1x3.png"
+  },
+  "prefabs/Platforms/Floating_1x5.prefab": {
+    "textureKey": "unity-platform-floating-1x5",
+    "file": "assets/sprites/platforms/Floating_1x5.png"
+  },
+  "prefabs/Platforms/Floating_1x8.prefab": {
+    "textureKey": "unity-platform-floating-1x8",
+    "file": "assets/sprites/platforms/Floating_1x8.png"
+  },
+  "prefabs/Platforms/Mesa_004.prefab": {
+    "textureKey": "unity-platform-mesa-004",
+    "file": "assets/sprites/platforms/Mesa_004.png"
+  },
+  "prefabs/Platforms/Mesa_01.prefab": {
+    "textureKey": "unity-platform-mesa-01",
+    "file": "assets/sprites/platforms/Mesa_01.png"
+  },
+  "prefabs/Platforms/Mesa_010.prefab": {
+    "textureKey": "unity-platform-mesa-010",
+    "file": "assets/sprites/platforms/Mesa_010.png"
+  },
+  "prefabs/Platforms/Mesa_04_D.prefab": {
+    "textureKey": "unity-platform-mesa-04-d",
+    "file": "assets/sprites/platforms/Mesa_04_D.png"
+  },
+  "prefabs/Platforms/Mesa_05_B.prefab": {
+    "textureKey": "unity-platform-mesa-05-b",
+    "file": "assets/sprites/platforms/Mesa_05_B.png"
+  },
+  "prefabs/Platforms/Mesa_09.prefab": {
+    "textureKey": "unity-platform-mesa-09",
+    "file": "assets/sprites/platforms/Mesa_09.png"
+  },
+  "prefabs/Platforms/Mesa_09_A.prefab": {
+    "textureKey": "unity-platform-mesa-09-a",
+    "file": "assets/sprites/platforms/Mesa_09_A.png"
+  },
+  "prefabs/Platforms/Mesa_10_A.prefab": {
+    "textureKey": "unity-platform-mesa-10-a",
+    "file": "assets/sprites/platforms/Mesa_10_A.png"
+  },
+  "prefabs/Platforms/Mesa_11.prefab": {
+    "textureKey": "unity-platform-mesa-11",
+    "file": "assets/sprites/platforms/Mesa_11.png"
+  },
+  "prefabs/Platforms/Mesa_11_A.prefab": {
+    "textureKey": "unity-platform-mesa-11-a",
+    "file": "assets/sprites/platforms/Mesa_11_A.png"
+  },
+  "prefabs/Platforms/Mesa_12.prefab": {
+    "textureKey": "unity-platform-mesa-12",
+    "file": "assets/sprites/platforms/Mesa_12_B.png"
+  },
+  "prefabs/Platforms/Smart Platform.prefab": {
+    "textureKey": "unity-platform-smart-platform",
+    "file": "assets/sprites/platforms/desert_full.png"
+  },
+  "prefabs/Platforms/mesa_06.prefab": {
+    "textureKey": "unity-platform-mesa-06",
+    "file": "assets/sprites/platforms/mesa_06.png"
+  },
+  "prefabs/Platforms/mesa_06_light_a.prefab": {
+    "textureKey": "unity-platform-mesa-06-light-a",
+    "file": "assets/sprites/platforms/mesa_06_Light_A.png"
+  },
+  "prefabs/Platforms/mesa_07.prefab": {
+    "textureKey": "unity-platform-mesa-07",
+    "file": "assets/sprites/platforms/mesa_07.png"
+  },
+  "prefabs/Platforms/mesa_08_A.prefab": {
+    "textureKey": "unity-platform-mesa-08-a",
+    "file": "assets/sprites/platforms/mesa_08_A.png"
+  },
+  "prefabs/Platforms/mesa_15_A.prefab": {
+    "textureKey": "unity-platform-mesa-15-a",
+    "file": "assets/sprites/platforms/mesa_15_A.png"
+  },
+  "prefabs/Platforms/mesa_15_B.prefab": {
+    "textureKey": "unity-platform-mesa-15-b",
+    "file": "assets/sprites/platforms/mesa_15_B.png"
+  }
+}

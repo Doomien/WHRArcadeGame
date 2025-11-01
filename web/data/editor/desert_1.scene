@@ -1,0 +1,548 @@
+{
+    "id": "9987dddb-85b6-4b10-a3f1-58caee43b540",
+    "sceneType": "SCENE",
+    "settings": {
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "desert_1"
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "a16050e4-bbba-4590-aff9-1064c3a82047",
+            "label": "bg_desert_1",
+            "texture": {
+                "key": "bg-desert-1"
+            },
+            "x": 642,
+            "y": 360
+        },
+        {
+            "type": "Image",
+            "id": "d02c29cc-7d6a-45e5-9bb1-63ed499dc154",
+            "label": "unity_platform_floating_1x3",
+            "texture": {
+                "key": "unity-platform-floating-1x3"
+            },
+            "x": 387.16590709442977,
+            "y": 80.00000000000004
+        },
+        {
+            "type": "Image",
+            "id": "052022fd-674d-4d7f-bbd7-68e918e8a783",
+            "label": "unity_platform_mesa_15_a",
+            "texture": {
+                "key": "unity-platform-mesa-15-a"
+            },
+            "x": 584.5876160944222,
+            "y": 150.74204946996468
+        },
+        {
+            "type": "Image",
+            "id": "8dc4a9e0-f71e-4a4e-b4f8-f1a3c8e73152",
+            "label": "unity_platform_floating_1x8",
+            "texture": {
+                "key": "unity-platform-floating-1x8"
+            },
+            "x": 798.6893332031925,
+            "y": 187.27790388692583
+        },
+        {
+            "type": "Image",
+            "id": "4a8f98c3-4d3c-4c79-bebd-484a8c7b36ff",
+            "label": "unity_platform_mesa_07",
+            "texture": {
+                "key": "unity-platform-mesa-07"
+            },
+            "x": 300.0192508390333,
+            "y": 178.7279151943463
+        },
+        {
+            "type": "Image",
+            "id": "e668e081-28ad-4663-8246-738b3dd8df1c",
+            "label": "unity_platform_mesa_09_a",
+            "texture": {
+                "key": "unity-platform-mesa-09-a"
+            },
+            "x": 271.7930159397548,
+            "y": 184.31095406360427
+        },
+        {
+            "type": "Image",
+            "id": "02a158af-5276-474e-9e0d-942e3db42dc4",
+            "label": "unity_platform_mesa_11_a",
+            "texture": {
+                "key": "unity-platform-mesa-11-a"
+            },
+            "x": 450.5967309612656,
+            "y": 178.63972932862194
+        },
+        {
+            "type": "Image",
+            "id": "4fd2eb79-ec90-4043-9537-a22130589ad5",
+            "label": "unity_platform_mesa_07",
+            "texture": {
+                "key": "unity-platform-mesa-07"
+            },
+            "x": 905.1426168827755,
+            "y": 301.8303886925795
+        },
+        {
+            "type": "Image",
+            "id": "117269c3-4407-4432-b4d4-21b912af9879",
+            "label": "unity_platform_floating_1x3",
+            "texture": {
+                "key": "unity-platform-floating-1x3"
+            },
+            "x": 726.2094016773157,
+            "y": 230.02518869257952
+        },
+        {
+            "type": "Image",
+            "id": "67e1aec8-9402-49a1-91ab-1ea5bd367198",
+            "label": "unity_platform_floating_1x5",
+            "texture": {
+                "key": "unity-platform-floating-1x5"
+            },
+            "x": 406.5548956745677,
+            "y": 121.83745583038873
+        },
+        {
+            "type": "Image",
+            "id": "1e4dc858-0045-41b6-b48f-1350ef92a80b",
+            "label": "unity_platform_smart_platform",
+            "texture": {
+                "key": "unity-platform-smart-platform"
+            },
+            "x": 1120,
+            "y": 523.3851590106008
+        },
+        {
+            "type": "Image",
+            "id": "4714b2e8-82ba-417f-ae74-744bdb2c8710",
+            "label": "unity_platform_mesa_09",
+            "texture": {
+                "key": "unity-platform-mesa-09"
+            },
+            "x": 676.847487405116,
+            "y": 342.9681978798586
+        },
+        {
+            "type": "Image",
+            "id": "d9788689-248e-4ad8-b7c8-70d3e9746872",
+            "label": "unity_platform_floating_1x3",
+            "texture": {
+                "key": "unity-platform-floating-1x3"
+            },
+            "x": 980.6083084939447,
+            "y": 213.92226148409895
+        },
+        {
+            "type": "Image",
+            "id": "c3e77e8b-ab19-4afd-9d18-6173277a472d",
+            "label": "unity_platform_mesa_15_b",
+            "texture": {
+                "key": "unity-platform-mesa-15-b"
+            },
+            "x": 619.3532498930092,
+            "y": 307.2791519434629
+        },
+        {
+            "type": "Image",
+            "id": "5e6c9510-1b13-4407-a323-434eaa12e536",
+            "label": "unity_platform_mesa_06_light_a",
+            "texture": {
+                "key": "unity-platform-mesa-06-light-a"
+            },
+            "x": 326.45739813347956,
+            "y": 161.97103180212017
+        },
+        {
+            "type": "Image",
+            "id": "46b454b7-240a-487d-a9af-e886935d1789",
+            "label": "unity_platform_mesa_10_a",
+            "texture": {
+                "key": "unity-platform-mesa-10-a"
+            },
+            "x": 550.134320401835,
+            "y": 269.2579505300354
+        },
+        {
+            "type": "Image",
+            "id": "d6ce6bca-a535-4ebe-a37c-e448c6b08124",
+            "label": "unity_platform_floating_1x5",
+            "texture": {
+                "key": "unity-platform-floating-1x5"
+            },
+            "x": 741.5831637747862,
+            "y": 205.65370954063607
+        },
+        {
+            "type": "Image",
+            "id": "45c51eee-5057-4789-8841-8688663b0251",
+            "label": "unity_platform_floating_1x3",
+            "texture": {
+                "key": "unity-platform-floating-1x3"
+            },
+            "x": 959.6672397870697,
+            "y": 235.97173144876328
+        },
+        {
+            "type": "Image",
+            "id": "cd46181a-405a-43ce-8c51-dcd3d32c7eaa",
+            "label": "unity_platform_floating_1x3",
+            "texture": {
+                "key": "unity-platform-floating-1x3"
+            },
+            "x": 564.2837892018109,
+            "y": 105.62284805653715
+        },
+        {
+            "type": "Image",
+            "id": "42246ec9-f003-4b56-84e3-578d09f20b29",
+            "label": "unity_platform_floating_1x8",
+            "texture": {
+                "key": "unity-platform-floating-1x8"
+            },
+            "x": 357.7041106998326,
+            "y": 104.41633215547706
+        },
+        {
+            "type": "Image",
+            "id": "9c7fe908-d1d9-47f6-8078-00f5422fc050",
+            "label": "unity_platform_smart_platform",
+            "texture": {
+                "key": "unity-platform-smart-platform"
+            },
+            "x": 920.6465999444399,
+            "y": 331.18021201413427
+        },
+        {
+            "type": "Image",
+            "id": "1aa7d0a2-4854-4358-a9f0-ad3416ae0674",
+            "label": "unity_platform_floating_1x3",
+            "texture": {
+                "key": "unity-platform-floating-1x3"
+            },
+            "x": 690.9392217074984,
+            "y": 179.22532155477035
+        },
+        {
+            "type": "Image",
+            "id": "fdb60267-566f-4610-b16a-381ff1ab4c73",
+            "label": "unity_platform_mesa_07",
+            "texture": {
+                "key": "unity-platform-mesa-07"
+            },
+            "x": 300.07162753680865,
+            "y": 178.5159010600707
+        },
+        {
+            "type": "Image",
+            "id": "8dbf80dc-dad5-4ef6-a2d3-d9b4590ed717",
+            "label": "unity_platform_smart_platform",
+            "texture": {
+                "key": "unity-platform-smart-platform"
+            },
+            "x": 571.0340643746856,
+            "y": 317.35766077738515
+        },
+        {
+            "type": "Image",
+            "id": "9aec188b-29db-4588-abcd-cca9cb9e6729",
+            "label": "unity_platform_floating_1x3",
+            "texture": {
+                "key": "unity-platform-floating-1x3"
+            },
+            "x": 980.1037623227145,
+            "y": 260.77738515901063
+        },
+        {
+            "type": "Image",
+            "id": "17ab398a-9119-425a-aef7-b419efcb75e6",
+            "label": "unity_platform_floating_1x3",
+            "texture": {
+                "key": "unity-platform-floating-1x3"
+            },
+            "x": 772.8669484717207,
+            "y": 219.5759717314488
+        },
+        {
+            "type": "Image",
+            "id": "d7547a2a-f884-4c58-8898-484ef7a24478",
+            "label": "unity_platform_mesa_09_a",
+            "texture": {
+                "key": "unity-platform-mesa-09-a"
+            },
+            "x": 769.8761909767323,
+            "y": 341.62544169611306
+        },
+        {
+            "type": "Image",
+            "id": "bbf9ddfa-086b-492a-9918-77f16b3ccf79",
+            "label": "unity_platform_mesa_07",
+            "texture": {
+                "key": "unity-platform-mesa-07"
+            },
+            "x": 524.8655189242355,
+            "y": 177.9118939929329
+        },
+        {
+            "type": "Image",
+            "id": "021b2157-36da-452c-9480-eeff60121b80",
+            "label": "unity_platform_floating_1x3",
+            "texture": {
+                "key": "unity-platform-floating-1x3"
+            },
+            "x": 852.6110955108907,
+            "y": 167.91519434628978
+        },
+        {
+            "type": "Image",
+            "id": "df4f4b14-a826-47bb-ac13-3f40fceb99a1",
+            "label": "unity_platform_floating_1x3",
+            "texture": {
+                "key": "unity-platform-floating-1x3"
+            },
+            "x": 828.4515988557613,
+            "y": 155.83038869257953
+        },
+        {
+            "type": "Image",
+            "id": "42f38023-c55e-4768-a7e2-49c100fffebe",
+            "label": "unity_platform_smart_platform",
+            "texture": {
+                "key": "unity-platform-smart-platform"
+            },
+            "x": 577.5359827012742,
+            "y": 200.74911660777389
+        },
+        {
+            "type": "Image",
+            "id": "41ad1778-ac5a-4c47-a462-9beedba2cf2b",
+            "label": "unity_platform_mesa_004",
+            "texture": {
+                "key": "unity-platform-mesa-004"
+            },
+            "x": 240.43907529901122,
+            "y": 178.30723250883395
+        },
+        {
+            "type": "Image",
+            "id": "2d78c9cb-6018-4e7f-89cf-4cd90b58fea6",
+            "label": "unity_platform_mesa_004",
+            "texture": {
+                "key": "unity-platform-mesa-004"
+            },
+            "x": 428.23010308659127,
+            "y": 178.44976113074208
+        },
+        {
+            "type": "Image",
+            "id": "8cc2dfc1-dc3b-4261-aa36-f63e2ff98991",
+            "label": "unity_platform_smart_platform",
+            "texture": {
+                "key": "unity-platform-smart-platform"
+            },
+            "x": 914.7842539549061,
+            "y": 215.97879858657245
+        },
+        {
+            "type": "Image",
+            "id": "2f999ecd-24ba-4cc3-9750-0079cf2dcbfd",
+            "label": "unity_platform_mesa_06",
+            "texture": {
+                "key": "unity-platform-mesa-06"
+            },
+            "x": 968.0828296631104,
+            "y": 317.3780918727915
+        },
+        {
+            "type": "Image",
+            "id": "8113b6c1-8a16-4c96-b22c-2a659255d96b",
+            "label": "unity_platform_floating_1x3",
+            "texture": {
+                "key": "unity-platform-floating-1x3"
+            },
+            "x": 492.46716770904504,
+            "y": 105.37102473498237
+        },
+        {
+            "type": "Image",
+            "id": "90cb9d12-0259-4beb-8404-c426399386f4",
+            "label": "unity_platform_floating_1x3",
+            "texture": {
+                "key": "unity-platform-floating-1x3"
+            },
+            "x": 957.2069765521177,
+            "y": 197.17585045936397
+        },
+        {
+            "type": "Image",
+            "id": "12b92145-50ba-4c77-a401-f61960e08375",
+            "label": "unity_platform_floating_1x3",
+            "texture": {
+                "key": "unity-platform-floating-1x3"
+            },
+            "x": 708.333162648567,
+            "y": 205.50966219081275
+        },
+        {
+            "type": "Image",
+            "id": "ce86cfc5-00bb-425f-b285-7892536912e6",
+            "label": "unity_platform_floating_1x3",
+            "texture": {
+                "key": "unity-platform-floating-1x3"
+            },
+            "x": 540.1154750016893,
+            "y": 93.8515901060071
+        },
+        {
+            "type": "Image",
+            "id": "01a8b16f-cf78-4d83-b91d-d18edd29dfb1",
+            "label": "unity_platform_mesa_06",
+            "texture": {
+                "key": "unity-platform-mesa-06"
+            },
+            "x": 472.7177649805915,
+            "y": 161.53065017667848
+        },
+        {
+            "type": "Image",
+            "id": "7318d559-b69a-4ea4-86ab-76dd5c05c193",
+            "label": "unity_platform_smart_platform",
+            "texture": {
+                "key": "unity-platform-smart-platform"
+            },
+            "x": 762.7044275428151,
+            "y": 600
+        },
+        {
+            "type": "Image",
+            "id": "7b278415-70a5-4814-bb94-439401bc7a4f",
+            "label": "unity_platform_mesa_11",
+            "texture": {
+                "key": "unity-platform-mesa-11"
+            },
+            "x": 941.2575993512979,
+            "y": 178.7279151943463
+        },
+        {
+            "type": "Image",
+            "id": "de174aad-fbda-40c1-8bc4-34e67866a1d4",
+            "label": "unity_platform_mesa_04_d",
+            "texture": {
+                "key": "unity-platform-mesa-04-d"
+            },
+            "x": 373.82452905269963,
+            "y": 172.67753356890464
+        },
+        {
+            "type": "Image",
+            "id": "9cf8dd49-3b87-4175-a00d-ead88e02d9b6",
+            "label": "unity_platform_mesa_05_b",
+            "texture": {
+                "key": "unity-platform-mesa-05-b"
+            },
+            "x": 433.94454496993,
+            "y": 167.13780918727917
+        },
+        {
+            "type": "Image",
+            "id": "8ae58b71-988c-40d6-bd71-311557e1ba50",
+            "label": "unity_platform_floating_1x3",
+            "texture": {
+                "key": "unity-platform-floating-1x3"
+            },
+            "x": 865.0806177687347,
+            "y": 134.63168409893996
+        },
+        {
+            "type": "Image",
+            "id": "913b77d6-f4eb-4c5a-a96b-5cd36a7ae3c6",
+            "label": "unity_platform_mesa_15_a",
+            "texture": {
+                "key": "unity-platform-mesa-15-a"
+            },
+            "x": 872.683479866956,
+            "y": 326.7844522968198
+        },
+        {
+            "type": "Image",
+            "id": "050fdeff-88ff-48b7-a0a2-6fce66d431a5",
+            "label": "unity_platform_mesa_01",
+            "texture": {
+                "key": "unity-platform-mesa-01"
+            },
+            "x": 1112.484664649483,
+            "y": 155.44169611307424
+        },
+        {
+            "type": "Image",
+            "id": "b54e4fe1-49b7-47d5-a944-229585834a16",
+            "label": "unity_platform_floating_1x3",
+            "texture": {
+                "key": "unity-platform-floating-1x3"
+            },
+            "x": 516.2816749130934,
+            "y": 93.92226148409898
+        },
+        {
+            "type": "Image",
+            "id": "a9971a2e-0c3b-4dab-a2a1-23e1f8224ee0",
+            "label": "unity_platform_mesa_08_a",
+            "texture": {
+                "key": "unity-platform-mesa-08-a"
+            },
+            "x": 935.9509268783457,
+            "y": 301.63250883392226
+        },
+        {
+            "type": "Image",
+            "id": "c3692151-455c-4551-8d4c-b14b9f287e0a",
+            "label": "unity_platform_floating_1x3",
+            "texture": {
+                "key": "unity-platform-floating-1x3"
+            },
+            "x": 618.2156184069255,
+            "y": 147.54750954063607
+        },
+        {
+            "type": "Image",
+            "id": "54c8808c-05d6-4cc9-aab1-6eebc0cceec3",
+            "label": "unity_platform_floating_1x8",
+            "texture": {
+                "key": "unity-platform-floating-1x8"
+            },
+            "x": 664.8585093363566,
+            "y": 166.71378091872793
+        },
+        {
+            "type": "Image",
+            "id": "afa6c139-f89e-450c-81ca-5320e9ebc7b5",
+            "label": "unity_platform_mesa_01",
+            "texture": {
+                "key": "unity-platform-mesa-01"
+            },
+            "x": 218.2150177567217,
+            "y": 183.9575971731449
+        },
+        {
+            "type": "Image",
+            "id": "327ec12e-8351-49dd-b77c-3b8741b72d9c",
+            "label": "unity_platform_mesa_15_b",
+            "texture": {
+                "key": "unity-platform-mesa-15-b"
+            },
+            "x": 896.1809158413984,
+            "y": 150.60070671378097
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}
