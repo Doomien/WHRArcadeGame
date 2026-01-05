@@ -1,0 +1,117 @@
+{
+  "name": "Scorpion",
+  "spriteKey": "scorpion",
+  "hp": 8,
+  "damage": 2,
+  "moveSpeed": 80,
+  "chargeSpeed": 104,
+  "attackRange": 16,
+  "width": 128,
+  "points": 1000,
+
+  "timing": {
+    "freestyleDuration": 8000,
+    "shuffleStepDuration": 80,
+    "tailStrikeWindup": 1600,
+    "chargeAttackDuration": 1900,
+    "backupDuration": 2000,
+    "attack1Duration": 1650,
+    "attack2Duration": 2000,
+    "iFramesDuration": 500
+  },
+
+  "movement": {
+    "shuffleDistance": 12,
+    "jumpForce": {
+      "x": -100,
+      "y": -400
+    }
+  },
+
+  "attacks": [
+    {
+      "name": "jab_combo",
+      "windupMs": 0,
+      "activeMs": 100,
+      "recoverMs": 500,
+      "damage": 2,
+      "hitboxShape": {
+        "width": 32,
+        "height": 32,
+        "offsetX": 48,
+        "offsetY": 0
+      },
+      "cooldownMs": 1650
+    },
+    {
+      "name": "snap",
+      "windupMs": 500,
+      "activeMs": 200,
+      "recoverMs": 600,
+      "damage": 2,
+      "hitboxShape": {
+        "width": 48,
+        "height": 32,
+        "offsetX": 56,
+        "offsetY": 0
+      },
+      "cooldownMs": 0
+    },
+    {
+      "name": "tail_strike",
+      "windupMs": 1920,
+      "activeMs": 300,
+      "recoverMs": 500,
+      "damage": 4,
+      "hitboxShape": {
+        "width": 40,
+        "height": 48,
+        "offsetX": 0,
+        "offsetY": -48
+      },
+      "cooldownMs": 2420
+    },
+    {
+      "name": "charge",
+      "windupMs": 0,
+      "activeMs": 1900,
+      "recoverMs": 0,
+      "damage": 2,
+      "hitboxShape": {
+        "width": 64,
+        "height": 48,
+        "offsetX": 0,
+        "offsetY": 0
+      },
+      "cooldownMs": 1900
+    }
+  ],
+
+  "audio": {
+    "jab": "scorpion_claw",
+    "clawAttack": "scorpion_claw",
+    "tailAttack": "scorpion_sting",
+    "charge": "scorpion_claw",
+    "shuffleNoise": "scorpion_claw",
+    "pain": "scorpion_sting",
+    "death": "scorpion_sting"
+  },
+
+  "audioNotes": "Using placeholder mappings: jab/clawAttack/charge/shuffleNoise → scorpion_claw, tailAttack/pain/death → scorpion_sting. Replace with actual files when available.",
+
+  "animations": {
+    "idle": "scorpion-idle",
+    "stomp": "scorpion-stomp",
+    "leftJab": "scorpion-left-jab",
+    "rightJab": "scorpion-right-jab",
+    "leftSnap": "scorpion-left-snap",
+    "rightSnap": "scorpion-right-snap",
+    "tailStrike": "scorpion-tail-strike",
+    "charge": "scorpion-charge",
+    "forwardHop": "scorpion-forward-hop",
+    "backwardHop": "scorpion-backward-hop",
+    "death": "scorpion-death"
+  },
+
+  "debugMode": false
+}

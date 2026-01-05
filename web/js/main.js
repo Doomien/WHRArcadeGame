@@ -1,5 +1,5 @@
-const GAME_WIDTH = 1280;
-const GAME_HEIGHT = 720;
+const GAME_WIDTH = 1600;
+const GAME_HEIGHT = 900;
 
 const params = new URLSearchParams(window.location.search);
 // Expose selected scene key globally so GameplayScene can consume it on boot.
@@ -11,6 +11,12 @@ const config = {
   height: GAME_HEIGHT,
   pixelArt: true,
   parent: 'game-root',
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+    width: GAME_WIDTH,
+    height: GAME_HEIGHT
+  },
   physics: {
     default: 'arcade',
     arcade: {
@@ -18,7 +24,7 @@ const config = {
       debug: true
     }
   },
-  scene: [GameplayScene]
+  scene: [MenuScene, GameplayScene]
 };
 
 window.addEventListener('load', () => {

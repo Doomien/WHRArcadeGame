@@ -1,0 +1,55 @@
+{
+  "name": "Rat",
+  "spriteKey": "rat-master",
+  "scale": 2,
+  "hp": 2,
+  "damage": 1,
+  "moveSpeed": 60,
+  "attackRange": 40,
+  "width": 32,
+  "points": 100,
+
+  "timing": {
+    "patrolDuration": 3000,
+    "pauseDuration": 1000,
+    "attackDuration": 400,
+    "stunDuration": 500
+  },
+
+  "movement": {
+    "patrolDistance": 200,
+    "turnAtEdge": true
+  },
+
+  "attacks": [
+    {
+      "name": "bite",
+      "windupMs": 0,
+      "activeMs": 200,
+      "recoverMs": 200,
+      "damage": 1,
+      "hitboxShape": {
+        "width": 24,
+        "height": 16,
+        "offsetX": 16,
+        "offsetY": 0
+      },
+      "cooldownMs": 1000
+    }
+  ],
+
+  "audio": {
+  },
+
+  "audioNotes": "No audio files loaded. Add rat sounds later or use placeholders.",
+
+  "animations": {
+    "moveLeft": "rat-move-left",
+    "moveRight": "rat-move-right",
+    "stunLeft": "rat-stun-left",
+    "stunRight": "rat-stun-right",
+    "death": "rat-death"
+  },
+
+  "debugMode": false
+}

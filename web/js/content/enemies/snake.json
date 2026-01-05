@@ -1,0 +1,59 @@
+{
+  "name": "Snake",
+  "spriteKey": "snake-master",
+  "scale": 2,
+  "hp": 3,
+  "damage": 2,
+  "moveSpeed": 40,
+  "attackRange": 48,
+  "width": 48,
+  "points": 150,
+
+  "timing": {
+    "patrolDuration": 4000,
+    "pauseDuration": 1500,
+    "attackWindup": 300,
+    "attackDuration": 500,
+    "attackCooldown": 2000,
+    "stunDuration": 600
+  },
+
+  "movement": {
+    "patrolDistance": 250,
+    "crawlSpeed": 40,
+    "turnAtEdge": true
+  },
+
+  "attacks": [
+    {
+      "name": "strike",
+      "windupMs": 300,
+      "activeMs": 200,
+      "recoverMs": 300,
+      "damage": 2,
+      "hitboxShape": {
+        "width": 32,
+        "height": 20,
+        "offsetX": 24,
+        "offsetY": 0
+      },
+      "cooldownMs": 2000
+    }
+  ],
+
+  "audio": {
+  },
+
+  "audioNotes": "No audio files loaded. Add snake sounds later or use placeholders.",
+
+  "animations": {
+    "moveLeft": "snake-move-left",
+    "moveRight": "snake-move-right",
+    "attackLeft": "snake-attack-left",
+    "attackRight": "snake-attack-right",
+    "stun": "snake-stun",
+    "death": "snake-die"
+  },
+
+  "debugMode": false
+}

@@ -166,6 +166,30 @@ class RayPlayer {
       this.facing = 1;
     }
 
+    // Create combat hitbox if system is available
+    if (this.scene.combatSystem) {
+      const hitboxX = this.sprite.x + offsetX;
+      const hitboxY = this.sprite.y + offsetY;
+
+      const payload = createInteraction({
+        kind: InteractionKind.MELEE,
+        sourceId: 'player',
+        sourceTeam: 'player',
+        damage: 1,
+        iFramesMs: 500
+      });
+
+      this.scene.combatSystem.createTemporaryHitbox(
+        hitboxX,
+        hitboxY,
+        30,
+        30,
+        payload,
+        200,
+        false // debug visible
+      );
+    }
+
     this.showAttackHitbox(offsetX, offsetY);
     const animKey = intent.includes('LEFT') ? 'ray-attack-left' : 'ray-attack-right';
     this.sprite.play(animKey, true);
@@ -264,6 +288,39 @@ class RayPlayer {
   takeDamage(amount) {
     this.hp -= amount;
     console.log(`HP: ${this.hp}/10`);
+    if (this.hp <= 0) {
+      this.die();
+    }
+  }
+
+  applyDamage(amount, payload = null) {
+    if (this.hp <= 0) return;
+
+    this.hp = Math.max(0, this.hp - amount);
+
+    // Visual feedback
+    if (this.sprite) {
+      this.sprite.setTint(0xff0000);
+      this.scene.time.delayedCall(100, () => {
+        if (this.sprite) {
+          this.sprite.clearTint();
+        }
+      });
+    }
+
+    // Apply knockback if provided
+    if (payload && payload.knockback && this.sprite && this.sprite.body) {
+      this.sprite.body.setVelocity(payload.knockback.x, payload.knockback.y);
+    }
+
+    console.log(`Player took ${amount} damage! HP: ${this.hp}/10`);
+
+    // Update hearts display
+    if (this.scene.heartsDisplay) {
+      this.scene.heartsDisplay.updateDisplay(this.hp);
+      this.scene.heartsDisplay.flashDamage();
+    }
+
     if (this.hp <= 0) {
       this.die();
     }

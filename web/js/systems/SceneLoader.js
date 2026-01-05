@@ -336,10 +336,8 @@ class SceneLoader {
     const mainKey = backgroundConfig.key || `bg-${sceneKey}`;
     if (this.scene.textures.exists(mainKey)) {
       const bg = this.scene.add.image(GAME_WIDTH / 2, GAME_HEIGHT / 2, mainKey);
-      bg.setDisplaySize(
-        backgroundConfig.displayWidth || GAME_WIDTH,
-        backgroundConfig.displayHeight || GAME_HEIGHT
-      );
+      // Always use current game dimensions instead of config values
+      bg.setDisplaySize(GAME_WIDTH, GAME_HEIGHT);
       bg.setDepth(backgroundConfig.depth || -10);
       objects.background = bg;
     }
@@ -350,10 +348,8 @@ class SceneLoader {
           return;
         }
         const layerImage = this.scene.add.image(GAME_WIDTH / 2, GAME_HEIGHT / 2, layerKey);
-        layerImage.setDisplaySize(
-          layer.displayWidth || backgroundConfig.displayWidth || GAME_WIDTH,
-          layer.displayHeight || backgroundConfig.displayHeight || GAME_HEIGHT
-        );
+        // Always use current game dimensions for background layers
+        layerImage.setDisplaySize(GAME_WIDTH, GAME_HEIGHT);
         layerImage.setDepth(layer.depth || (backgroundConfig.depth || -15));
         objects.backgroundLayers.push(layerImage);
       });

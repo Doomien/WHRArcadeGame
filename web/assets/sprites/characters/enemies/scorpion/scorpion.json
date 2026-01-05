@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "name": "Scorpion Boss",
+    "frameWidth": 160,
+    "frameHeight": 160,
+    "source": "Unity Boss Scorpion sprite sheets"
+  },
+  "sprites": {
+    "idle": {
+      "file": "Scorpion_Idle 1.0 - Sheet.png",
+      "frames": 5
+    },
+    "forward_hop": {
+      "file": "Scorpion_Forward_Hop 1.0 - Sheet.png",
+      "frames": 3
+    },
+    "backward_hop": {
+      "file": "Scorpion_Backward_Hop 1.0 - Sheet.png",
+      "frames": 3
+    },
+    "left_jab": {
+      "file": "Scorpion_Left_Jab 1.0 - Sheet.png",
+      "frames": 2
+    },
+    "right_jab": {
+      "file": "Scorpion_Right_Jab 1.0 - Sheet.png",
+      "frames": 2
+    },
+    "left_snap": {
+      "file": "Scorpion_Left_Snap 1.0 - Sheet.png",
+      "frames": 3
+    },
+    "right_snap": {
+      "file": "Scorpion_Right_Snap 1.0 - Sheet.png",
+      "frames": 3
+    },
+    "stomp": {
+      "file": "Scorpion_Stomp 1.0 - Sheet.png",
+      "frames": 8
+    },
+    "tail_strike": {
+      "file": "Scorpion_Tail_Strike 1.0 - Sheet.png",
+      "frames": 2
+    }
+  },
+  "animations": {
+    "scorpion-idle": {
+      "sprite": "idle",
+      "frameRate": 8,
+      "repeat": -1
+    },
+    "scorpion-forward-hop": {
+      "sprite": "forward_hop",
+      "frameRate": 12,
+      "repeat": 0
+    },
+    "scorpion-backward-hop": {
+      "sprite": "backward_hop",
+      "frameRate": 12,
+      "repeat": 0
+    },
+    "scorpion-left-jab": {
+      "sprite": "left_jab",
+      "frameRate": 10,
+      "repeat": 0
+    },
+    "scorpion-right-jab": {
+      "sprite": "right_jab",
+      "frameRate": 10,
+      "repeat": 0
+    },
+    "scorpion-left-snap": {
+      "sprite": "left_snap",
+      "frameRate": 12,
+      "repeat": 0
+    },
+    "scorpion-right-snap": {
+      "sprite": "right_snap",
+      "frameRate": 12,
+      "repeat": 0
+    },
+    "scorpion-stomp": {
+      "sprite": "stomp",
+      "frameRate": 16,
+      "repeat": 0
+    },
+    "scorpion-tail-strike": {
+      "sprite": "tail_strike",
+      "frameRate": 8,
+      "repeat": 0
+    },
+    "scorpion-charge": {
+      "sprite": "idle",
+      "frameRate": 12,
+      "repeat": -1,
+      "note": "Uses idle animation during charge"
+    }
+  }
+}
