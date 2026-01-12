@@ -546,7 +546,8 @@
           "width": 9.610403261530607,
           "height": 33.079710247349816,
           "is_trigger": true,
-          "game_object": "DoorCollider"
+          "game_object": "DoorCollider",
+          "game_object_id": "1584240417"
         }
       ],
       "player_spawn": {
@@ -577,7 +578,8 @@
           "width": 965.7947686116701,
           "height": 498.80095923261393,
           "is_trigger": false,
-          "game_object": "Lower Bound"
+          "game_object": "Lower Bound",
+          "game_object_id": "3937765"
         },
         {
           "x": 870.5835010060362,
@@ -585,7 +587,8 @@
           "width": 265.5935613682093,
           "height": 37.410071942446045,
           "is_trigger": false,
-          "game_object": "BoothsCollider"
+          "game_object": "BoothsCollider",
+          "game_object_id": "266881416"
         },
         {
           "x": 594.6076458752515,
@@ -593,7 +596,8 @@
           "width": 53.118712273641854,
           "height": 77.31414868105516,
           "is_trigger": true,
-          "game_object": "Joe"
+          "game_object": "Joe",
+          "game_object_id": "588358391"
         },
         {
           "x": 594.6076458752515,
@@ -601,7 +605,8 @@
           "width": 53.118712273641854,
           "height": 77.31414868105516,
           "is_trigger": false,
-          "game_object": "Joe"
+          "game_object": "Joe",
+          "game_object_id": "588358391"
         },
         {
           "x": 159.9999999999999,
@@ -609,7 +614,8 @@
           "width": 241.44869215291752,
           "height": 498.80095923261393,
           "is_trigger": false,
-          "game_object": "Left Bound"
+          "game_object": "Left Bound",
+          "game_object_id": "846068833"
         },
         {
           "x": 779.3158953722334,
@@ -617,7 +623,8 @@
           "width": 48.289738430583505,
           "height": 74.82014388489209,
           "is_trigger": false,
-          "game_object": "JukeboxCollider"
+          "game_object": "JukeboxCollider",
+          "game_object_id": "910513492"
         },
         {
           "x": 424.1448692152917,
@@ -625,7 +632,8 @@
           "width": 45.87525150905433,
           "height": 69.83213429256595,
           "is_trigger": false,
-          "game_object": "waitress_2"
+          "game_object": "waitress_2",
+          "game_object_id": "1195565435"
         },
         {
           "x": 424.1448692152917,
@@ -633,7 +641,8 @@
           "width": 45.87525150905433,
           "height": 69.83213429256595,
           "is_trigger": true,
-          "game_object": "waitress_2"
+          "game_object": "waitress_2",
+          "game_object_id": "1195565435"
         },
         {
           "x": 505.271629778672,
@@ -641,7 +650,8 @@
           "width": 845.0704225352113,
           "height": 249.40047961630697,
           "is_trigger": false,
-          "game_object": "WallBound"
+          "game_object": "WallBound",
+          "game_object_id": "1197353356"
         },
         {
           "x": 980.6841046277666,
@@ -649,7 +659,8 @@
           "width": 96.57947686116701,
           "height": 102.12913976019185,
           "is_trigger": true,
-          "game_object": "DoorCollider"
+          "game_object": "DoorCollider",
+          "game_object_id": "1356047943"
         },
         {
           "x": 320.80482897384303,
@@ -657,7 +668,8 @@
           "width": 33.802816901408455,
           "height": 47.386091127098325,
           "is_trigger": true,
-          "game_object": "cook_2"
+          "game_object": "cook_2",
+          "game_object_id": "1465125658"
         },
         {
           "x": 1120.0,
@@ -665,7 +677,8 @@
           "width": 241.44869215291752,
           "height": 498.80095923261393,
           "is_trigger": false,
-          "game_object": "Right Bound"
+          "game_object": "Right Bound",
+          "game_object_id": "1681050711"
         },
         {
           "x": 438.1488933601609,
@@ -673,7 +686,8 @@
           "width": 386.31790744466804,
           "height": 249.40047961630697,
           "is_trigger": false,
-          "game_object": "BarCollider"
+          "game_object": "BarCollider",
+          "game_object_id": "1951578602"
         },
         {
           "x": 966.8804249496982,
@@ -681,7 +695,8 @@
           "width": 62.246879034205236,
           "height": 82.61913131894485,
           "is_trigger": false,
-          "game_object": "Door Bound"
+          "game_object": "Door Bound",
+          "game_object_id": "2142994086"
         }
       ],
       "player_spawn": {
@@ -834,7 +849,8 @@
           "width": 12.276214833759589,
           "height": 12.833675564681725,
           "is_trigger": true,
-          "game_object": "ExitCollider"
+          "game_object": "ExitCollider",
+          "game_object_id": "735949547"
         },
         {
           "x": 236.3171355498722,
@@ -842,7 +858,8 @@
           "width": 51.15089514066496,
           "height": 15.40041067761807,
           "is_trigger": false,
-          "game_object": "Scorpions"
+          "game_object": "Scorpions",
+          "game_object_id": "1597769014"
         },
         {
           "x": 249.10485933503844,
@@ -850,7 +867,16 @@
           "width": 25.57544757033248,
           "height": 21.38945927446954,
           "is_trigger": false,
-          "game_object": "Scorpions"
+          "game_object": "Scorpions",
+          "game_object_id": "1597769014"
+        }
+      ],
+      "enemies": [
+        {
+          "x": 236.3171355498722,
+          "y": 470.0,
+          "type": "scorpion",
+          "unity_id": "1597769014"
         }
       ],
       "player_spawn": {
@@ -881,7 +907,8 @@
           "width": 143.36917562724014,
           "height": 610.3286384976525,
           "is_trigger": false,
-          "game_object": "Right Bound"
+          "game_object": "Right Bound",
+          "game_object_id": "143139230"
         },
         {
           "x": 523.2974910394266,
@@ -889,7 +916,8 @@
           "width": 1146.953405017921,
           "height": 610.3286384976525,
           "is_trigger": false,
-          "game_object": "Ground"
+          "game_object": "Ground",
+          "game_object_id": "525650502"
         },
         {
           "x": 160.00000000000006,
@@ -897,7 +925,8 @@
           "width": 143.36917562724014,
           "height": 610.3286384976525,
           "is_trigger": false,
-          "game_object": "Left Bound"
+          "game_object": "Left Bound",
+          "game_object_id": "1699658075"
         }
       ],
       "player_spawn": {

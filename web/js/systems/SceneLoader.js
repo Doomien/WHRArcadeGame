@@ -151,7 +151,8 @@ class SceneLoader {
       spawnUnity: config.spawnUnity || null,
       spawn: config.spawn || { x: 0, y: 0 },
       movementMode: config.movementMode || (sceneKey === 'diner' ? 'adventure' : 'platformer'),
-      unityColliders: []
+      unityColliders: [],
+      enemies: []
     };
 
     const editorScene = this.editorScenes[sceneKey] || null;
@@ -183,7 +184,9 @@ class SceneLoader {
     }
 
     objects.unityPlatforms = this.buildUnityPlatformsFromSources(sceneKey, mapping, unityData, editorScene);
+    objects.unityPlatforms = this.buildUnityPlatformsFromSources(sceneKey, mapping, unityData, editorScene);
     objects.unityColliders = this.buildUnityCollidersFromSources(sceneKey, mapping, unityData);
+    objects.enemies = this.buildEnemiesFromSources(unityData);
     return objects;
   }
 
@@ -443,6 +446,18 @@ class SceneLoader {
         gameObject: collider.game_object || null
       };
     });
+  }
+
+  buildEnemiesFromSources(unityData) {
+    if (!unityData || !Array.isArray(unityData.enemies)) {
+      return [];
+    }
+    return unityData.enemies.map(e => ({
+      x: e.x,
+      y: e.y,
+      type: e.type,
+      unityId: e.unity_id
+    }));
   }
 
   getUnityPlatformTexture(prefabAsset) {

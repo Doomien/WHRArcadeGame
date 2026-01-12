@@ -212,7 +212,23 @@ def convert_collider(collider: Dict, mapping: UnityMapping) -> Dict:
         "width": phaser_size.width,
         "height": phaser_size.height,
         "is_trigger": collider.get("is_trigger", False),
+        "is_trigger": collider.get("is_trigger", False),
         "game_object": collider.get("game_object"),
+        "game_object_id": collider.get("game_object_id"),
+    }
+
+
+def convert_enemy(collider: Dict, mapping: UnityMapping, enemy_type: str) -> Dict:
+    """Convert enemy spawn from collider data."""
+    # Convert position
+    unity_point = Point(x=collider.get("x", 0.0), y=collider.get("y", 0.0))
+    phaser_point = convert_unity_point(unity_point, mapping)
+
+    return {
+        "x": phaser_point.x,
+        "y": phaser_point.y,
+        "type": enemy_type,
+        "unity_id": collider.get("game_object_id"),
     }
 
 
@@ -266,6 +282,28 @@ def convert_scene(
     colliders = unity_data.get("colliders", [])
     if isinstance(colliders, list) and colliders:
         result["colliders"] = [convert_collider(c, mapping) for c in colliders]
+
+        # Extract enemies from colliders (deduplicated by ID)
+        enemies_map: Dict[str, Dict] = {}
+        for c in colliders:
+            name = str(c.get("game_object", "")).lower()
+            gid = c.get("game_object_id")
+            if not gid:
+                continue
+
+            enemy_type = ""
+            if "scorpion" in name:
+                enemy_type = "scorpion"
+            elif "rat" in name:
+                enemy_type = "rat"
+            elif "snake" in name:
+                enemy_type = "snake"
+            
+            if enemy_type and gid not in enemies_map:
+                enemies_map[gid] = convert_enemy(c, mapping, enemy_type)
+        
+        if enemies_map:
+            result["enemies"] = list(enemies_map.values())
 
     # Convert spawn point
     player_spawn = unity_data.get("player_spawn")

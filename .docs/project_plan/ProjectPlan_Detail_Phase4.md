@@ -160,15 +160,15 @@ Deliverables:
 ---
 
 ## Implementation Checklist (Agent)
-- [ ] Create `EnemyBase.ts`, `StateMachine.ts`, `Timers.ts` with tests
-- [ ] Implement `Interaction.ts`, `InteractionSystem.ts` and wire to player
-- [ ] Import Scorpion art/audio and define animations
-- [ ] Author `scorpion.json` with timings and attacks
-- [ ] Build `Scorpion.ts` with states and attacks
-- [ ] Add `EnemySpawner.ts` and spawn in `GameplayScene`
-- [ ] Add debug overlay and toggles
-- [ ] Write Jest + E2E tests and stabilize timings
-- [ ] Tune values to match reference; update docs
+- [x] Create `EnemyBase.ts`, `StateMachine.ts`, `Timers.ts` with tests
+- [x] Implement `Interaction.ts`, `InteractionSystem.ts` and wire to player
+- [x] Import Scorpion art/audio and define animations
+- [x] Author `scorpion.json` with timings and attacks
+- [x] Build `Scorpion.ts` with states and attacks
+- [x] Add `EnemySpawner.ts` and spawn in `GameplayScene`
+- [x] Add debug overlay and toggles
+- [x] Write Jest + E2E tests and stabilize timings
+- [x] Tune values to match reference; update docs
 
 ---
 

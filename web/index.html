@@ -1,61 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>WHR Arcade Game - Phaser Prototype</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style>
-      body {
-        margin: 0;
-        background-color: #000;
-        color: #fff;
-        font-family: sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-      }
 
-      #game-root {
-        image-rendering: pixelated;
-      }
-    </style>
-    <script src="../Phaser/dist/phaser.js"></script>
-    <!-- Animation & Core Systems -->
-    <script src="js/animation-loader.js" defer></script>
-    <script src="js/systems/InputMapper.js" defer></script>
-    <script src="js/systems/SceneLoader.js" defer></script>
+<head>
+  <meta charset="utf-8" />
+  <title>WHR Arcade Game - Phaser Prototype</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
 
-    <!-- AI Framework -->
-    <script src="js/ai/StateMachine.js" defer></script>
-    <script src="js/utils/Timers.js" defer></script>
-    <script src="js/ai/EnemyBase.js" defer></script>
+    #game-root {
+      image-rendering: pixelated;
+    }
+  </style>
+  <script src="../Phaser/dist/phaser.js"></script>
+  <!-- Animation & Core Systems -->
+  <script src="js/animation-loader.js" defer></script>
+  <script src="js/systems/InputMapper.js" defer></script>
+  <script src="js/systems/SceneLoader.js" defer></script>
 
-    <!-- Combat System -->
-    <script src="js/combat/Interaction.js" defer></script>
-    <script src="js/combat/InteractionSystem.js" defer></script>
+  <!-- AI Framework -->
+  <script src="js/ai/StateMachine.js" defer></script>
+  <script src="js/utils/Timers.js" defer></script>
+  <script src="js/ai/EnemyBase.js" defer></script>
 
-    <!-- Debug Tools -->
-    <script src="js/debug/DebugOverlay.js" defer></script>
+  <!-- Combat System -->
+  <script src="js/combat/Interaction.js" defer></script>
+  <script src="js/combat/InteractionSystem.js" defer></script>
 
-    <!-- UI Systems -->
-    <script src="js/ui/HeartsDisplay.js" defer></script>
+  <!-- Debug Tools -->
+  <script src="js/debug/DebugOverlay.js" defer></script>
 
-    <!-- Entities -->
-    <script src="js/entities/RayPlayer.js" defer></script>
-    <script src="js/entities/Crystal.js" defer></script>
-    <script src="js/entities/Joe.js" defer></script>
-    <script src="js/entities/Doodad.js" defer></script>
-    <script src="js/ai/enemies/Rat.js" defer></script>
-    <script src="js/ai/enemies/Snake.js" defer></script>
-    <script src="js/ai/enemies/Scorpion.js" defer></script>
+  <!-- UI Systems -->
+  <script src="js/ui/HeartsDisplay.js" defer></script>
+  <script src="js/ui/BossHealthBar.js" defer></script>
+  <script src="js/scenes/HUDScene.js" defer></script>
 
-    <!-- Scenes -->
-    <script src="js/scenes/MenuScene.js" defer></script>
-    <script src="js/scenes/GameplayScene.js" defer></script>
-    <script src="js/main.js" defer></script>
-  </head>
-  <body>
-    <div id="game-root"></div>
-  </body>
+  <!-- Entities -->
+  <script src="js/entities/RayPlayer.js" defer></script>
+  <script src="js/entities/Crystal.js" defer></script>
+  <script src="js/entities/Joe.js" defer></script>
+  <script src="js/entities/Doodad.js" defer></script>
+  <script src="js/ai/enemies/Rat.js" defer></script>
+  <script src="js/ai/enemies/Snake.js" defer></script>
+  <script src="js/ai/enemies/Scorpion.js" defer></script>
+
+  <!-- Scenes -->
+  <script src="js/scenes/MenuScene.js" defer></script>
+  <script src="js/scenes/GameplayScene.js" defer></script>
+  <script src="js/scenes/PauseScene.js" defer></script>
+  <script src="js/scenes/GameOverScene.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+  <div id="game-root"></div>
+</body>
+
 </html>

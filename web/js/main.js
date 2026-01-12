@@ -24,10 +24,10 @@ const config = {
       debug: true
     }
   },
-  scene: [MenuScene, GameplayScene]
+  scene: [MenuScene, GameplayScene, HUDScene, PauseScene, GameOverScene]
 };
 
 window.addEventListener('load', () => {
   // eslint-disable-next-line no-new
-  new Phaser.Game(config);
+  window.game = new Phaser.Game(config);
 });

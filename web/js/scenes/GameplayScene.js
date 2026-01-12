@@ -222,8 +222,8 @@ class GameplayScene extends Phaser.Scene {
     // Initialize debug overlay
     this.debugOverlay = new DebugOverlay(this);
 
-    // Initialize hearts display (top-left corner, fixed to camera)
-    this.heartsDisplay = new HeartsDisplay(this, 20, 30, 10);
+    // Launch HUD Scene
+    this.scene.launch('HUDScene');
 
     // Create enemy animations
     this.createScorpionAnimations();
@@ -243,6 +243,22 @@ class GameplayScene extends Phaser.Scene {
     this.combatSystem.registerHurtbox('player', this.player.sprite, (payload) => {
       this.player.applyDamage(payload.damage, payload);
     }, 'player');
+
+    // Emit initial HUD state
+    this.time.delayedCall(100, () => {
+      this.events.emit('player-health-changed', this.player.hp);
+      this.events.emit('score-changed', this.score);
+    });
+
+    // Event Listeners
+    this.events.on('player-died', () => {
+      this.handlePlayerDeath();
+    });
+
+    // Pause Key
+    this.input.keyboard.on('keydown-ESC', () => {
+      this.pauseGame();
+    });
 
     this.loadScene(this.currentSceneKey);
     this.registerMessageHandlers();
@@ -555,9 +571,14 @@ class GameplayScene extends Phaser.Scene {
     }
   }
 
-  spawnScorpion() {
-    if (this.scorpion) {
-      console.log('[GameplayScene] Scorpion already spawned');
+  spawnScorpion(x, y, id) {
+    // If x/y provided, use them; otherwise default relative to player
+    const spawnX = x !== undefined ? x : (this.player.sprite.x + 200);
+    const spawnY = y !== undefined ? y : this.player.sprite.y;
+
+    if (this.scorpion && !id) {
+      // Only block single-instance spawn if we are trying to spawn the "main" scorpion again without an ID
+      console.log('[GameplayScene] Main Scorpion already spawned');
       return;
     }
 
@@ -568,28 +589,34 @@ class GameplayScene extends Phaser.Scene {
       return;
     }
 
-    // Spawn to the right of player
-    const spawnX = this.player.sprite.x + 200;
-    const spawnY = this.player.sprite.y;
-
     console.log(`[GameplayScene] Spawning Scorpion at (${spawnX}, ${spawnY})`);
 
-    this.scorpion = new Scorpion(this, spawnX, spawnY, config);
-    this.scorpion.player = this.player;
-    this.scorpion.audioManager = this.sound;
+    const scorpion = new Scorpion(this, spawnX, spawnY, config);
+    scorpion.player = this.player;
+    scorpion.audioManager = this.sound;
+    if (id) {
+      scorpion.unityId = id;
+    }
 
     // Register with combat system
-    this.combatSystem.registerHurtbox('scorpion', this.scorpion.sprite, (payload) => {
-      this.scorpion.applyDamage(payload.damage, payload);
+    this.combatSystem.registerHurtbox('scorpion-' + (id || 'main'), scorpion.sprite, (payload) => {
+      scorpion.applyDamage(payload.damage, payload);
+      this.events.emit('boss-damaged', {
+        currentHP: scorpion.hp,
+        maxHP: scorpion.maxHp
+      });
+      if (scorpion.hp <= 0) {
+        this.events.emit('boss-defeated');
+      }
     }, 'enemy');
 
     // Add physics colliders for ground and platforms
     if (this.ground) {
-      this.physics.add.collider(this.scorpion.sprite, this.ground);
+      this.physics.add.collider(scorpion.sprite, this.ground);
     }
     if (this.platforms) {
       this.physics.add.collider(
-        this.scorpion.sprite,
+        scorpion.sprite,
         this.platforms,
         null,
         this.shouldCollideWithUnityPlatform,
@@ -598,24 +625,35 @@ class GameplayScene extends Phaser.Scene {
     }
 
     // Add to enemies list
-    this.enemies.push(this.scorpion);
+    this.enemies.push(scorpion);
 
     // Activate boss AI
-    this.scorpion.activate();
+    scorpion.activate();
+
+    // Signal HUD
+    this.events.emit('boss-spawned', {
+      currentHP: scorpion.hp,
+      maxHP: scorpion.maxHp,
+      name: "SCORPION"
+    });
+
+    if (!this.scorpion) {
+      this.scorpion = scorpion; // Keep reference to first scorpion as main boss if needed
+    }
 
     console.log('[GameplayScene] Scorpion spawned and activated');
   }
 
-  spawnRat() {
+  spawnRat(x, y, id) {
     const config = this.cache.json.get('rat-config');
     if (!config) {
       console.error('[GameplayScene] Rat config not loaded');
       return;
     }
 
-    // Spawn to the left of player
-    const spawnX = this.player.sprite.x - 150;
-    const spawnY = this.player.sprite.y;
+    // Spawn to the left of player if no coords
+    const spawnX = x !== undefined ? x : (this.player.sprite.x - 150);
+    const spawnY = y !== undefined ? y : this.player.sprite.y;
 
     console.log(`[GameplayScene] Spawning Rat at (${spawnX}, ${spawnY})`);
 
@@ -652,16 +690,16 @@ class GameplayScene extends Phaser.Scene {
     console.log('[GameplayScene] Rat spawned and activated');
   }
 
-  spawnSnake() {
+  spawnSnake(x, y, id) {
     const config = this.cache.json.get('snake-config');
     if (!config) {
       console.error('[GameplayScene] Snake config not loaded');
       return;
     }
 
-    // Spawn ahead of player
-    const spawnX = this.player.sprite.x + 250;
-    const spawnY = this.player.sprite.y;
+    // Spawn ahead of player if no coords
+    const spawnX = x !== undefined ? x : (this.player.sprite.x + 250);
+    const spawnY = y !== undefined ? y : this.player.sprite.y;
 
     console.log(`[GameplayScene] Spawning Snake at (${spawnX}, ${spawnY})`);
 
@@ -727,6 +765,7 @@ class GameplayScene extends Phaser.Scene {
   addScore(points) {
     this.score += points;
     console.log(`[GameplayScene] Score: ${this.score} (+${points})`);
+    this.events.emit('score-changed', this.score);
   }
 
   spawnJoe() {
@@ -792,6 +831,18 @@ class GameplayScene extends Phaser.Scene {
 
     this.doodads.push(truck);
     console.log('[GameplayScene] Truck spawned');
+  }
+
+  handlePlayerDeath() {
+    console.log('[GameplayScene] Player died -> Game Over');
+    this.scene.pause();
+    this.scene.launch('GameOverScene');
+  }
+
+  pauseGame() {
+    console.log('[GameplayScene] Pausing game');
+    this.scene.pause();
+    this.scene.launch('PauseScene');
   }
 
   drawBoundsDebug() {
@@ -897,7 +948,9 @@ class GameplayScene extends Phaser.Scene {
 
       this.resetPlayerForScene();
       this.buildUnityPlatforms(sceneObjects.unityPlatforms || []);
+      this.buildUnityPlatforms(sceneObjects.unityPlatforms || []);
       this.buildUnityColliders(sceneObjects.unityColliders || []);
+      this.buildEnemies(sceneObjects.enemies || []);
 
       this.playerGroundCollider = this.physics.add.collider(this.player.sprite, this.ground);
       this.playerPlatformCollider = this.physics.add.collider(
@@ -1100,6 +1153,7 @@ class GameplayScene extends Phaser.Scene {
       if (!PLATFORM_DEBUG) {
         rect.setVisible(false);
       }
+      this.unityColliderShapes.push(rect);
 
       if (enablePhysics) {
         if (data.isTrigger) {
@@ -1119,10 +1173,36 @@ class GameplayScene extends Phaser.Scene {
           this.adventureBlockerColliders.push(collider);
         }
       }
-
-      this.unityColliderShapes.push(rect);
     });
   }
+
+  buildEnemies(enemies) {
+    // Clear existing enemies
+    this.enemies.forEach(e => {
+      if (e.destroy) e.destroy();
+      else if (e.sprite && e.sprite.destroy) e.sprite.destroy();
+    });
+    this.enemies = [];
+    this.scorpion = null;
+    this.scorpionSpawned = false;
+    this.rats = [];
+    this.snakes = [];
+
+    if (!Array.isArray(enemies)) return;
+
+    console.log(`[GameplayScene] Building ${enemies.length} enemies from scene data`);
+
+    enemies.forEach(e => {
+      if (e.type === 'scorpion') {
+        this.spawnScorpion(e.x, e.y, e.unityId);
+      } else if (e.type === 'rat') {
+        this.spawnRat(e.x, e.y, e.unityId);
+      } else if (e.type === 'snake') {
+        this.spawnSnake(e.x, e.y, e.unityId);
+      }
+    });
+  }
+
 
   handleAdventureTrigger(triggerShape) {
     const data = triggerShape?.getData?.('unityCollider');

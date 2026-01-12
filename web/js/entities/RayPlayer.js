@@ -315,11 +315,8 @@ class RayPlayer {
 
     console.log(`Player took ${amount} damage! HP: ${this.hp}/10`);
 
-    // Update hearts display
-    if (this.scene.heartsDisplay) {
-      this.scene.heartsDisplay.updateDisplay(this.hp);
-      this.scene.heartsDisplay.flashDamage();
-    }
+    // Emit health change event for HUD
+    this.scene.events.emit('player-health-changed', this.hp);
 
     if (this.hp <= 0) {
       this.die();
@@ -328,6 +325,7 @@ class RayPlayer {
 
   die() {
     console.log('Player died!');
+    this.scene.events.emit('player-died');
   }
 
   setMovementMode(mode) {
