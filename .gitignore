@@ -83,3 +83,7 @@ pnpm-debug.log*
 
 # Local prototype art assets (managed outside of Git)
 /web/assets/main-scene-background.png
+
+# MacOS
+.DS_Store
+**/.DS_Store
